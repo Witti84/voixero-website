@@ -1,550 +1,758 @@
-export const pricing = {
-  convert: [
-    {
-      id: "convert-starter",
-      name: "Convert Starter",
-
-      monthlyPrice: 99,
-      price: "CHF 99",
-      period: "/ Monat",
-
-      setupFee: 349,
-      annualDiscount: 0.05,
-
-      description:
-        "Der Einstieg in professionelles GEO-Monitoring und die Optimierung Ihrer KI-Sichtbarkeit.",
-
-      features: [
-        "Sichtbarkeit über alle 5 Engines",
-        "10 Scans & 5 Prompts pro Tag",
-        "Bis zu 3 Autopilot-Korrekturen pro Tag",
-        "Anwenden oder zurückrollen, immer kostenlos",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      payment: {
-        setup: "mit Unterschrift des Vertrags / 7 Tage",
-        package: "monatlich im Voraus / jährlich mit Rabatt",
-      },
-
-      cta: "GEO-Analyse anfordern",
-    },
-
-    {
-      id: "convert-professional",
-      name: "Convert Professional",
-
-      monthlyPrice: 249,
-      price: "CHF 249",
-      period: "/ Monat",
-
-      setupFee: 499,
-      annualDiscount: 0.1,
-
-      description:
-        "Für Unternehmen mit regelmässigem Prompt-Monitoring und erweitertem Autopilot.",
-
-      features: [
-        "Sichtbarkeit über alle 5 Engines",
-        "1'000 Prompt-Läufe pro Monat",
-        "Keine täglichen Nutzungslimits",
-        "10 Autopilot-Korrekturen pro Tag",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      payment: {
-        setup: "mit Unterschrift des Vertrags / 7 Tage",
-        package: "monatlich im Voraus / jährlich mit Rabatt",
-      },
-
-      cta: "GEO-Analyse anfordern",
-      highlighted: true,
-    },
-
-    {
-      id: "convert-business",
-      name: "Convert Business",
-
-      monthlyPrice: 499,
-      price: "CHF 499",
-      period: "/ Monat",
-
-      setupFee: 999,
-      annualDiscount: 0.1,
-
-      description:
-        "Für Unternehmen mit höherem Optimierungsbedarf, mehreren Stores und erweitertem Reporting.",
-
-      features: [
-        "Sichtbarkeit über alle 5 Engines",
-        "1'000 Prompt-Läufe pro Monat",
-        "Keine täglichen Nutzungslimits",
-        "50 Autopilot-Korrekturen pro Tag",
-        "Geplante Berichte, kostenlos inklusive",
-        "Multi-Store-fähig",
-        "Priorisierter Support",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      payment: {
-        setup: "mit Unterschrift des Vertrags / 7 Tage",
-        package: "monatlich im Voraus / jährlich mit Rabatt",
-      },
-
-      cta: "Beratung anfragen",
-    },
-
-    {
-      id: "convert-enterprise",
-      name: "Convert Enterprise",
-
-      monthlyPrice: 899,
-      price: "CHF 899",
-      period: "/ Monat",
-
-      setupFee: 1499,
-      annualDiscount: 0.15,
-
-      description:
-        "Für anspruchsvolle Multi-Brand- und Enterprise-Umgebungen mit erweiterten Governance-Anforderungen.",
-
-      features: [
-        "Sichtbarkeit über alle 5 Engines",
-        "1'000 Prompt-Läufe pro Monat",
-        "Keine täglichen Nutzungslimits",
-        "200 Autopilot-Korrekturen pro Tag",
-        "White-Label-Kundenberichte",
-        "Multi-Store-fähig",
-        "Priorisierter Support",
-        "SSO / SAML + dedizierter Manager",
-        "Individuelle Verträge & SLA",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      payment: {
-        setup: "mit Unterschrift des Vertrags / 7 Tage",
-        package: "monatlich im Voraus / jährlich mit Rabatt",
-      },
-
-      cta: "Enterprise anfragen",
-    },
-  ],
-
-  concierge: [
-    {
-      id: "concierge-starter",
-      name: "Concierge Starter",
-
-      monthlyPrice: 949,
-      price: "CHF 949",
-      period: "/ Monat",
-
-      includedMinutes: 9490,
-      setupFee: 3499,
-
-      overagePerMinute: 0.13,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.15,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 249,
-
-      description:
-        "Für den Einstieg in KI-gestützte digitale Beratung und automatisierte Customer Journeys.",
-
-      features: [
-        "Bis zu 9'490 Inklusivminuten",
-        "Digital Conversations 24h",
-        "Parallele Beratungen unlimitiert",
-        "2 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "10 parallele Workflows",
-        "10 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "3 Monate",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Concierge kennenlernen",
-    },
-
-    {
-      id: "concierge-professional",
-      name: "Concierge Professional",
-
-      monthlyPrice: 3495,
-      price: "CHF 3'495",
-      period: "/ Monat",
-
-      includedMinutes: 38833.333333333336,
-      setupFee: 7499,
-
-      overagePerMinute: 0.12,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.12,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 449,
-
-      description:
-        "Für Unternehmen mit mehreren digitalen Beratungsprozessen und höherem Gesprächsvolumen.",
-
-      features: [
-        "Bis zu ca. 38'833 Inklusivminuten",
-        "Digital Conversations 24h",
-        "Parallele Beratungen unlimitiert",
-        "5 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "20 parallele Workflows",
-        "30 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "3 Monate",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Beratung buchen",
-      highlighted: true,
-    },
-
-    {
-      id: "concierge-business",
-      name: "Concierge Business",
-
-      monthlyPrice: 7499,
-      price: "CHF 7'499",
-      period: "/ Monat",
-
-      includedMinutes: 93737.5,
-      setupFee: 9999,
-
-      overagePerMinute: 0.11,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.13,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 649,
-
-      description:
-        "Für umfangreiche digitale Beratungs- und Automatisierungsprozesse mit mehreren KI-Agenten.",
-
-      features: [
-        "Bis zu ca. 93'738 Inklusivminuten",
-        "Digital Conversations 24h",
-        "Parallele Beratungen unlimitiert",
-        "10 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "50 parallele Workflows",
-        "50 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "3 Monate",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Business anfragen",
-    },
-
-    {
-      id: "concierge-enterprise",
-      name: "Concierge Enterprise",
-
-      monthlyPrice: null,
-      price: "Nach Bedarf",
-      period: "",
-
-      includedMinutes: null,
-      setupFee: null,
-
-      overagePerMinute: null,
-      premiumVoicePerMinute: null,
-      goldVoicePerMinute: null,
-      videoAvatarPerMinute: null,
-      phoneValidation: null,
-      emailValidation: null,
-      aiTrainingSession: 0,
-
-      description:
-        "Für individuelle Enterprise-Szenarien mit massgeschneidertem Volumen und skalierbaren Prozessen.",
-
-      features: [
-        "Individuelle Inklusivminuten",
-        "Digital Conversations 24h",
-        "Parallele Beratungen unlimitiert",
-        "KI-Agenten / Assistenten unlimitiert",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "70 parallele Workflows",
-        "100 Trainingsszenarien pro KI-trainiert-KI Session",
-        "KI trainiert KI kostenfrei",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "3 Monate",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Enterprise anfragen",
-    },
-  ],
-
-  cognia: [
-    {
-      id: "cognia-starter",
-      name: "Cognia Starter",
-
-      monthlyPrice: 949,
-      price: "CHF 949",
-      period: "/ Monat",
-
-      includedMinutes: 6326.666666666667,
-      setupFee: 3499,
-
-      overagePerMinute: 0.19,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.15,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 249,
-
-      concurrentCalls: 3,
-      additionalConcurrentLine: 20,
-
-      description:
-        "Für den Einstieg in professionelle KI-Telefonie und automatisierte Kundenkommunikation.",
-
-      features: [
-        "Bis zu ca. 6'327 Inklusivminuten",
-        "Telefonie Inbound & Outbound",
-        "3 parallele Telefonleitungen",
-        "2 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "10 parallele Workflows",
-        "10 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Cognia kennenlernen",
-    },
-
-    {
-      id: "cognia-professional",
-      name: "Cognia Professional",
-
-      monthlyPrice: 3495,
-      price: "CHF 3'495",
-      period: "/ Monat",
-
-      includedMinutes: 24964.28571428571,
-      setupFee: 7499,
-
-      overagePerMinute: 0.18,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.12,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 449,
-
-      concurrentCalls: 8,
-      additionalConcurrentLine: 20,
-
-      description:
-        "Für Unternehmen mit höherem Gesprächsvolumen, mehreren KI-Agenten und parallelen Workflows.",
-
-      features: [
-        "Bis zu ca. 24'964 Inklusivminuten",
-        "Telefonie Inbound & Outbound",
-        "8 parallele Telefonleitungen",
-        "5 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "20 parallele Workflows",
-        "30 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Beratung buchen",
-      highlighted: true,
-    },
-
-    {
-      id: "cognia-business",
-      name: "Cognia Business",
-
-      monthlyPrice: 7499,
-      price: "CHF 7'499",
-      period: "/ Monat",
-
-      includedMinutes: 57684.61538461538,
-      setupFee: 9999,
-
-      overagePerMinute: 0.17,
-      premiumVoicePerMinute: 0.05,
-      goldVoicePerMinute: 0.06,
-      videoAvatarPerMinute: 0.13,
-      phoneValidation: 0.02,
-      emailValidation: 0.02,
-      aiTrainingSession: 649,
-
-      concurrentCalls: 20,
-      additionalConcurrentLine: 20,
-
-      description:
-        "Für grössere Service- und Vertriebsorganisationen mit umfangreicher KI-Telefonie.",
-
-      features: [
-        "Bis zu ca. 57'685 Inklusivminuten",
-        "Telefonie Inbound & Outbound",
-        "20 parallele Telefonleitungen",
-        "10 KI-Agenten / Assistenten",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "50 parallele Workflows",
-        "50 Trainingsszenarien pro KI-trainiert-KI Session",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Business anfragen",
-    },
-
-    {
-      id: "cognia-enterprise",
-      name: "Cognia Enterprise",
-
-      monthlyPrice: null,
-      price: "Nach Bedarf",
-      period: "",
-
-      includedMinutes: null,
-      setupFee: null,
-
-      overagePerMinute: null,
-      premiumVoicePerMinute: null,
-      goldVoicePerMinute: null,
-      videoAvatarPerMinute: null,
-      phoneValidation: null,
-      emailValidation: null,
-      aiTrainingSession: 0,
-
-      concurrentCalls: null,
-      additionalConcurrentLine: 15,
-
-      description:
-        "Für individuelle Enterprise-Setups mit unbegrenzten KI-Agenten und skalierbarer Telefonie.",
-
-      features: [
-        "Individuelle Inklusivminuten",
-        "Telefonie Inbound & Outbound",
-        "Parallele Telefonleitungen unbegrenzt",
-        "KI-Agenten / Assistenten unlimitiert",
-        "Standard Voices inklusive",
-        "Premium Voices optional",
-        "70 parallele Workflows",
-        "100 Trainingsszenarien pro KI-trainiert-KI Session",
-        "KI trainiert KI kostenfrei",
-        "Omnichannel-Budget",
-      ],
-
-      contract: {
-        pilot: "1 Monat / kostenfrei",
-        afterPilot: "12 Monate",
-        automaticRenewal: "keine",
-        reminder: "90 Tage vor Vertragsablauf",
-      },
-
-      cta: "Enterprise anfragen",
-    },
-  ],
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import Button from "../shared/Button";
+import { pricing } from "../../data/pricing";
+
+const productLabels = {
+  convert: "Convert",
+  concierge: "Concierge",
+  cognia: "Cognia",
 };
 
-export const serviceRates = {
-  concierge: {
-    apiIntegrationPerHour: 125,
-    changesOutsideSetupPerHour: 125,
+const voiceOptions = {
+  standard: {
+    label: "Standard Voice",
+    surcharge: 0,
   },
-
-  cognia: {
-    apiIntegrationPerHour: 125,
-    changesOutsideSetupPerHour: 125,
+  premium: {
+    label: "Premium Voice",
+    surcharge: 0.05,
+  },
+  gold: {
+    label: "Gold Voice",
+    surcharge: 0.06,
   },
 };
 
-export function getProductPricing(product) {
-  return pricing[product] || [];
+function formatCHF(value, decimals = 0) {
+  if (value === null || value === undefined) {
+    return "Individuell";
+  }
+
+  return `CHF ${Number(value).toLocaleString("de-CH", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  })}`;
 }
 
-export function getPricingTier(product, tierId) {
-  return getProductPricing(product).find(
-    (tier) => tier.id === tierId
+function formatNumber(value) {
+  return Math.round(Number(value || 0)).toLocaleString("de-CH");
+}
+
+function getTierKey(tier) {
+  return tier.id.split("-").pop();
+}
+
+function NumberField({
+  label,
+  value,
+  onChange,
+  min = 0,
+  max,
+  suffix,
+  step = 1,
+}) {
+  return (
+    <label className="block">
+      <span className="mb-2 block text-sm font-semibold text-white/70">
+        {label}
+      </span>
+
+      <div className="flex overflow-hidden rounded-xl border border-cyan-300/15 bg-black/20 focus-within:border-cyan-300/50">
+        <input
+          type="number"
+          value={value}
+          min={min}
+          max={max}
+          step={step}
+          onChange={(event) => onChange(Number(event.target.value))}
+          className="min-w-0 flex-1 bg-transparent px-4 py-4 text-lg text-white outline-none"
+        />
+
+        {suffix && (
+          <div className="flex items-center border-l border-white/10 px-4 text-sm text-white/45">
+            {suffix}
+          </div>
+        )}
+      </div>
+    </label>
+  );
+}
+
+function Toggle({ label, checked, onChange, description }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(!checked)}
+      className={`flex w-full items-center justify-between gap-4 rounded-xl border p-4 text-left transition ${
+        checked
+          ? "border-cyan-300/40 bg-cyan-300/10"
+          : "border-white/10 bg-white/[0.025]"
+      }`}
+    >
+      <div>
+        <div className="font-semibold text-white">{label}</div>
+
+        {description && (
+          <div className="mt-1 text-sm text-white/45">
+            {description}
+          </div>
+        )}
+      </div>
+
+      <div
+        className={`relative h-7 w-12 shrink-0 rounded-full transition ${
+          checked ? "bg-cyan-300" : "bg-white/15"
+        }`}
+      >
+        <div
+          className={`absolute top-1 h-5 w-5 rounded-full bg-white transition ${
+            checked ? "left-6" : "left-1"
+          }`}
+        />
+      </div>
+    </button>
+  );
+}
+
+function ResultRow({ label, value, highlight = false }) {
+  return (
+    <div className="flex items-center justify-between gap-5 border-b border-white/10 py-3 last:border-b-0">
+      <span className="text-white/50">{label}</span>
+
+      <span
+        className={`text-right font-semibold ${
+          highlight ? "text-cyan-300" : "text-white"
+        }`}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
+
+function VoiceSelector({ value, onChange }) {
+  return (
+    <div>
+      <span className="mb-3 block text-sm font-semibold text-white/70">
+        Sprachqualität
+      </span>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        {Object.entries(voiceOptions).map(([key, option]) => {
+          const active = value === key;
+
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={() => onChange(key)}
+              className={`rounded-xl border p-4 text-left transition ${
+                active
+                  ? "border-cyan-300 bg-cyan-300/10"
+                  : "border-white/10 bg-white/[0.025] hover:border-cyan-300/30"
+              }`}
+            >
+              <div
+                className={`font-semibold ${
+                  active ? "text-cyan-200" : "text-white"
+                }`}
+              >
+                {option.label}
+              </div>
+
+              <div className="mt-2 text-sm text-white/45">
+                {option.surcharge === 0
+                  ? "inklusive"
+                  : `+ ${formatCHF(option.surcharge, 2)} / Min.`}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function calculateAdjustedIncludedMinutes(tier, voiceType) {
+  if (!tier.includedMinutes || !tier.monthlyPrice) {
+    return null;
+  }
+
+  const baseRate =
+    Number(tier.monthlyPrice) / Number(tier.includedMinutes);
+
+  const voiceSurcharge =
+    voiceOptions[voiceType]?.surcharge || 0;
+
+  return (
+    Number(tier.monthlyPrice) /
+    (baseRate + voiceSurcharge)
+  );
+}
+
+export default function ProductConfigurator({
+  product = "convert",
+  onProductChange,
+}) {
+  const [activeProduct, setActiveProduct] = useState(product);
+
+  useEffect(() => {
+    setActiveProduct(product);
+  }, [product]);
+
+  const changeProduct = (nextProduct) => {
+    setActiveProduct(nextProduct);
+
+    if (onProductChange) {
+      onProductChange(nextProduct);
+    }
+  };
+
+  // Convert
+  const [autopilotPerDay, setAutopilotPerDay] = useState(5);
+  const [scheduledReports, setScheduledReports] = useState(false);
+  const [multiStore, setMultiStore] = useState(false);
+  const [whiteLabel, setWhiteLabel] = useState(false);
+  const [sso, setSso] = useState(false);
+  const [annualPayment, setAnnualPayment] = useState(false);
+
+  // Cognia / Concierge
+  const [callsPerMonth, setCallsPerMonth] = useState(1500);
+  const [averageDuration, setAverageDuration] = useState(4);
+  const [concurrentCalls, setConcurrentCalls] = useState(3);
+  const [voiceType, setVoiceType] = useState("standard");
+
+  // Zusatzoptionen
+  const [videoAvatarMinutes, setVideoAvatarMinutes] = useState(0);
+  const [phoneValidations, setPhoneValidations] = useState(0);
+  const [emailValidations, setEmailValidations] = useState(0);
+  const [aiTrainingSessions, setAiTrainingSessions] = useState(0);
+
+  const monthlyMinutes =
+    Math.max(0, callsPerMonth) *
+    Math.max(0, averageDuration);
+
+  const convertResult = useMemo(() => {
+    let tierKey = "starter";
+
+    if (whiteLabel || sso || autopilotPerDay > 50) {
+      tierKey = "enterprise";
+    } else if (
+      scheduledReports ||
+      multiStore ||
+      autopilotPerDay > 10
+    ) {
+      tierKey = "business";
+    } else if (autopilotPerDay > 3) {
+      tierKey = "professional";
+    }
+
+    const tier = pricing.convert.find(
+      (item) => getTierKey(item) === tierKey
+    );
+
+    if (!tier) {
+      return null;
+    }
+
+    const discount = annualPayment
+      ? tier.annualDiscount || 0
+      : 0;
+
+    const monthlyPrice = tier.monthlyPrice || 0;
+    const effectiveMonthly = monthlyPrice * (1 - discount);
+    const annualPrice = effectiveMonthly * 12;
+    const annualSavings = monthlyPrice * 12 - annualPrice;
+
+    return {
+      tier,
+      monthlyPrice,
+      effectiveMonthly,
+      annualPrice,
+      annualSavings,
+      discount,
+    };
+  }, [
+    autopilotPerDay,
+    scheduledReports,
+    multiStore,
+    whiteLabel,
+    sso,
+    annualPayment,
+  ]);
+
+  const conversationResult = useMemo(() => {
+    if (
+      activeProduct !== "cognia" &&
+      activeProduct !== "concierge"
+    ) {
+      return null;
+    }
+
+    const productPricing = pricing[activeProduct];
+
+    const standardTiers = productPricing.filter(
+      (tier) => tier.monthlyPrice !== null
+    );
+
+    const calculations = standardTiers.map((tier) => {
+      const adjustedIncludedMinutes =
+        calculateAdjustedIncludedMinutes(tier, voiceType);
+
+      const overageMinutes = Math.max(
+        0,
+        monthlyMinutes - adjustedIncludedMinutes
+      );
+
+      const voiceSurcharge =
+        voiceOptions[voiceType]?.surcharge || 0;
+
+      const effectiveOverageRate =
+        Number(tier.overagePerMinute || 0) +
+        voiceSurcharge;
+
+      const overageCost =
+        overageMinutes * effectiveOverageRate;
+
+      let additionalLines = 0;
+      let additionalLinesCost = 0;
+
+      if (activeProduct === "cognia") {
+        additionalLines = Math.max(
+          0,
+          concurrentCalls - Number(tier.concurrentCalls || 0)
+        );
+
+        additionalLinesCost =
+          additionalLines *
+          Number(tier.additionalConcurrentLine || 0);
+      }
+
+      const videoAvatarCost =
+        videoAvatarMinutes *
+        Number(tier.videoAvatarPerMinute || 0);
+
+      const phoneValidationCost =
+        phoneValidations *
+        Number(tier.phoneValidation || 0);
+
+      const emailValidationCost =
+        emailValidations *
+        Number(tier.emailValidation || 0);
+
+      const trainingCost =
+        aiTrainingSessions *
+        Number(tier.aiTrainingSession || 0);
+
+      const optionsCost =
+        videoAvatarCost +
+        phoneValidationCost +
+        emailValidationCost +
+        trainingCost;
+
+      const monthlyTotal =
+        Number(tier.monthlyPrice) +
+        overageCost +
+        additionalLinesCost +
+        optionsCost;
+
+      return {
+        tier,
+        adjustedIncludedMinutes,
+        overageMinutes,
+        overageCost,
+        effectiveOverageRate,
+        additionalLines,
+        additionalLinesCost,
+        optionsCost,
+        monthlyTotal,
+      };
+    });
+
+    calculations.sort(
+      (a, b) => a.monthlyTotal - b.monthlyTotal
+    );
+
+    return {
+      ...calculations[0],
+      custom: false,
+    };
+  }, [
+    activeProduct,
+    monthlyMinutes,
+    concurrentCalls,
+    voiceType,
+    videoAvatarMinutes,
+    phoneValidations,
+    emailValidations,
+    aiTrainingSessions,
+  ]);
+
+  const result =
+    activeProduct === "convert"
+      ? convertResult
+      : conversationResult;
+
+  return (
+    <section
+      id="produktkonfigurator"
+      className="bg-[#070b1c] px-6 py-24 text-white"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-3 text-cyan-300">
+            Produktkonfigurator
+          </p>
+
+          <h2 className="text-4xl font-light leading-tight md:text-6xl">
+            Finden Sie das passende{" "}
+            <span className="font-bold text-cyan-300">
+              Voixero Paket.
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-white/65">
+            Geben Sie einige Eckwerte ein. Wir berechnen daraus
+            Ihr voraussichtliches Volumen und das wirtschaftlich
+            passende Paket.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-3">
+          {["convert", "concierge", "cognia"].map((item) => (
+            <button
+              key={item}
+              type="button"
+              onClick={() => changeProduct(item)}
+              className={`rounded-xl border px-6 py-3 font-semibold transition ${
+                activeProduct === item
+                  ? "border-cyan-300 bg-cyan-300 text-slate-950"
+                  : "border-cyan-300/20 bg-white/[0.03] text-white/65 hover:border-cyan-300/50 hover:text-cyan-200"
+              }`}
+            >
+              {productLabels[item]}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-12 grid overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-white/[0.035] shadow-2xl shadow-cyan-950/30 lg:grid-cols-2">
+          <div className="p-7 md:p-10">
+            <p className="text-sm uppercase tracking-[0.18em] text-white/35">
+              Ihre Anforderungen
+            </p>
+
+            <h3 className="mt-3 text-3xl font-light">
+              Voixero {productLabels[activeProduct]}
+            </h3>
+
+            {activeProduct === "convert" && (
+              <div className="mt-8 space-y-5">
+                <NumberField
+                  label="Autopilot-Korrekturen pro Tag"
+                  value={autopilotPerDay}
+                  onChange={setAutopilotPerDay}
+                  min={0}
+                  max={200}
+                />
+
+                <Toggle
+                  label="Geplante Berichte"
+                  checked={scheduledReports}
+                  onChange={setScheduledReports}
+                />
+
+                <Toggle
+                  label="Multi-Store"
+                  checked={multiStore}
+                  onChange={setMultiStore}
+                />
+
+                <Toggle
+                  label="White-Label Reports"
+                  checked={whiteLabel}
+                  onChange={setWhiteLabel}
+                />
+
+                <Toggle
+                  label="SSO / SAML"
+                  checked={sso}
+                  onChange={setSso}
+                />
+
+                <Toggle
+                  label="Jährliche Zahlung"
+                  checked={annualPayment}
+                  onChange={setAnnualPayment}
+                />
+              </div>
+            )}
+
+            {(activeProduct === "cognia" ||
+              activeProduct === "concierge") && (
+              <div className="mt-8 space-y-5">
+                <NumberField
+                  label={
+                    activeProduct === "cognia"
+                      ? "Anrufe pro Monat"
+                      : "Beratungen pro Monat"
+                  }
+                  value={callsPerMonth}
+                  onChange={setCallsPerMonth}
+                  min={0}
+                />
+
+                <NumberField
+                  label="Ø Dauer pro Gespräch"
+                  value={averageDuration}
+                  onChange={setAverageDuration}
+                  min={0.5}
+                  step={0.5}
+                  suffix="Min."
+                />
+
+                {activeProduct === "cognia" && (
+                  <NumberField
+                    label="Wie viele Anrufe sollen gleichzeitig angenommen werden?"
+                    value={concurrentCalls}
+                    onChange={setConcurrentCalls}
+                    min={1}
+                  />
+                )}
+
+                <div className="rounded-xl border border-cyan-300/15 bg-cyan-300/[0.05] p-5">
+                  <div className="text-sm text-white/45">
+                    Berechnetes Volumen
+                  </div>
+
+                  <div className="mt-2 text-3xl font-semibold text-cyan-300">
+                    {formatNumber(monthlyMinutes)} Min.
+                  </div>
+
+                  <div className="mt-1 text-sm text-white/40">
+                    pro Monat
+                  </div>
+                </div>
+
+                <VoiceSelector
+                  value={voiceType}
+                  onChange={setVoiceType}
+                />
+
+                <details className="rounded-2xl border border-white/10 bg-black/15 p-5">
+                  <summary className="cursor-pointer font-semibold text-cyan-200">
+                    Zusatzoptionen konfigurieren
+                  </summary>
+
+                  <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                    <NumberField
+                      label="Video Avatar Minuten"
+                      value={videoAvatarMinutes}
+                      onChange={setVideoAvatarMinutes}
+                      min={0}
+                    />
+
+                    <NumberField
+                      label="Phone Validations"
+                      value={phoneValidations}
+                      onChange={setPhoneValidations}
+                      min={0}
+                    />
+
+                    <NumberField
+                      label="E-Mail Validations"
+                      value={emailValidations}
+                      onChange={setEmailValidations}
+                      min={0}
+                    />
+
+                    <NumberField
+                      label="KI-trainiert-KI Sessions"
+                      value={aiTrainingSessions}
+                      onChange={setAiTrainingSessions}
+                      min={0}
+                    />
+                  </div>
+                </details>
+              </div>
+            )}
+          </div>
+
+          <motion.div
+            key={`${activeProduct}-${result?.tier?.id || "none"}-${voiceType}`}
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-[#050817] p-7 md:p-10"
+          >
+            <p className="text-sm uppercase tracking-[0.18em] text-cyan-300">
+              Unsere Empfehlung
+            </p>
+
+            {result?.tier && activeProduct !== "convert" && (
+              <>
+                <h3 className="mt-4 text-4xl font-light">
+                  {result.tier.name}
+                </h3>
+
+                <div className="mt-8">
+                  <div className="text-sm text-white/40">
+                    Geschätzte monatliche Kosten
+                  </div>
+
+                  <div className="mt-2 text-5xl font-bold text-cyan-300">
+                    {formatCHF(result.monthlyTotal)}
+                  </div>
+
+                  <div className="mt-1 text-white/40">
+                    / Monat
+                  </div>
+                </div>
+
+                <div className="mt-8 border-t border-white/10">
+                  <ResultRow
+                    label="Anrufe / Beratungen"
+                    value={formatNumber(callsPerMonth)}
+                  />
+
+                  <ResultRow
+                    label="Ø Gesprächsdauer"
+                    value={`${averageDuration} Min.`}
+                  />
+
+                  <ResultRow
+                    label="Berechnetes Volumen"
+                    value={`${formatNumber(monthlyMinutes)} Min.`}
+                  />
+
+                  <ResultRow
+                    label="Voice"
+                    value={voiceOptions[voiceType].label}
+                  />
+
+                  <ResultRow
+                    label="Inklusivminuten"
+                    value={`${formatNumber(
+                      result.adjustedIncludedMinutes
+                    )} Min.`}
+                    highlight={voiceType !== "standard"}
+                  />
+
+                  <ResultRow
+                    label="Paketpreis"
+                    value={formatCHF(result.tier.monthlyPrice)}
+                  />
+
+                  {result.overageMinutes > 0 && (
+                    <ResultRow
+                      label={`${formatNumber(
+                        result.overageMinutes
+                      )} zusätzliche Min.`}
+                      value={formatCHF(result.overageCost, 2)}
+                    />
+                  )}
+
+                  {activeProduct === "cognia" &&
+                    result.additionalLines > 0 && (
+                      <ResultRow
+                        label={`${result.additionalLines} zusätzliche Leitung(en)`}
+                        value={formatCHF(
+                          result.additionalLinesCost
+                        )}
+                      />
+                    )}
+
+                  {result.optionsCost > 0 && (
+                    <ResultRow
+                      label="Zusatzoptionen"
+                      value={formatCHF(result.optionsCost, 2)}
+                    />
+                  )}
+
+                  <ResultRow
+                    label="Setup einmalig"
+                    value={formatCHF(result.tier.setupFee)}
+                  />
+
+                  <ResultRow
+                    label="Gesamt / Monat"
+                    value={formatCHF(result.monthlyTotal)}
+                    highlight
+                  />
+                </div>
+
+                <div className="mt-10">
+                  <Button
+                    href="#/kontakt"
+                    className="w-full"
+                  >
+                    Konfiguration besprechen
+                  </Button>
+                </div>
+              </>
+            )}
+
+            {result?.tier && activeProduct === "convert" && (
+              <>
+                <h3 className="mt-4 text-4xl font-light">
+                  {result.tier.name}
+                </h3>
+
+                <div className="mt-8 text-5xl font-bold text-cyan-300">
+                  {formatCHF(result.effectiveMonthly)}
+                </div>
+
+                <div className="mt-1 text-white/40">
+                  / Monat
+                </div>
+
+                <div className="mt-8 border-t border-white/10">
+                  <ResultRow
+                    label="Listenpreis"
+                    value={`${formatCHF(
+                      result.monthlyPrice
+                    )} / Monat`}
+                  />
+
+                  <ResultRow
+                    label="Setup einmalig"
+                    value={formatCHF(result.tier.setupFee)}
+                  />
+
+                  {annualPayment && (
+                    <>
+                      <ResultRow
+                        label="Jahresrabatt"
+                        value={`${Math.round(
+                          result.discount * 100
+                        )} %`}
+                        highlight
+                      />
+
+                      <ResultRow
+                        label="Jahrespreis"
+                        value={formatCHF(result.annualPrice)}
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className="mt-10">
+                  <Button href="#/kontakt" className="w-full">
+                    Konfiguration besprechen
+                  </Button>
+                </div>
+              </>
+            )}
+
+            <p className="mt-8 text-xs leading-relaxed text-white/30">
+              Die Berechnung dient als Orientierung und ersetzt
+              kein individuelles Angebot. Alle Preise exkl. MwSt.
+              Externe Telefonie-, Provider- und Integrationskosten
+              können zusätzlich anfallen.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

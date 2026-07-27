@@ -12,6 +12,8 @@ import Logo from "./components/shared/Logo";
 import Highlight from "./components/shared/Highlight";
 import ConciergePage from "./pages/ConciergePage";
 import GeoAnalyzer from "./components/convert/GeoAnalyzer";
+import { pricing } from "./data/pricing";
+import ProductConfigurator from "./components/pricing/ProductConfigurator";
 
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
@@ -55,72 +57,43 @@ const convertBlocks = [
     items: ["Optimierungen durch die KI-Engine", "Vollautomatisch oder mit Freigabe", "Empfehlungen direkt umsetzen", "Minimaler Aufwand – maximaler Erfolg"]
   }
 ];
-
-const pricing = {
-  cognia: [
-    {
-      name: "Cognia Start",
-      price: "ab CHF 890",
-      period: "/ Monat",
-      description: "Für Unternehmen, die KI-Telefonie strukturiert testen und erste Prozesse automatisieren möchten.",
-      features: ["1 KI-Agent", "bis 500 Gespräche / Monat", "Basis-Wissensdatenbank", "Standard-Reporting", "E-Mail Support"],
-      cta: "Demo anfragen"
-    },
-    {
-      name: "Cognia Growth",
-      price: "ab CHF 1'890",
-      period: "/ Monat",
-      description: "Für wachsende Teams mit mehreren Use Cases, höherem Volumen und CRM-Anbindung.",
-      features: ["bis 3 KI-Agenten", "bis 2'500 Gespräche / Monat", "CRM-/Helpdesk-Integration", "Mehrsprachigkeit", "Qualitäts-Dashboard", "Priority Support"],
-      cta: "Beratung buchen",
-      highlighted: true
-    },
-    {
-      name: "Cognia Enterprise",
-      price: "Individuell",
-      period: "",
-      description: "Für komplexe Service-Organisationen mit individuellen Workflows, SLA und Integrationen.",
-      features: ["unlimitierte Agenten möglich", "individuelle Gesprächsvolumen", "Custom Integrationen", "SLA & Governance", "Workshops & Enablement"],
-      cta: "Angebot erhalten"
-    }
-  ],
-  convert: [
-    {
-      name: "Convert Start",
-      price: "ab CHF 690",
-      period: "/ Monat",
-      description: "Für Websites und kleinere Shops, die ihre KI-Sichtbarkeit professionell aufbauen wollen.",
-      features: ["GEO Visibility Score", "bis 50 Seiten / Produkte", "Prompt Monitoring", "Basis-Empfehlungen", "Monatliches Reporting"],
-      cta: "GEO-Analyse anfordern",
-    },
-    {
-      name: "Convert Growth",
-      price: "ab CHF 1'490",
-      period: "/ Monat",
-      description: "Für etablierte Shops und KMU mit Wettbewerbstracking und kontinuierlicher Optimierung.",
-      features: ["bis 500 Seiten / Produkte", "Competitor Intelligence", "Sentiment Monitoring", "Autopilot mit Freigabe", "Priorisierte KI-Empfehlungen", "Priority Support"],
-      cta: "Demo starten",
-      highlighted: true
-    },
-    {
-      name: "Convert Enterprise",
-      price: "Individuell",
-      period: "",
-      description: "Für grössere Shops, Portale und Multi-Brand Setups mit hoher Komplexität.",
-      features: ["Custom Seiten-/Produktvolumen", "Multi-Brand Monitoring", "API-/Shop-Anbindungen", "Custom Dashboards", "Strategische GEO-Beratung"],
-      cta: "Angebot erhalten"
-    }
-  ]
-};
-
 function runSmokeTests() {
-  console.assert(heroCards.length === 3, "Hero should contain three core cards.");
-  console.assert(positioningPoints.includes("mehr Abschlüsse"), "Positioning points should include sales outcome.");
-  console.assert(cogniaFeatures.length === 9, "Cognia should contain nine feature cards.");
-  console.assert(convertBlocks.length === 3, "Convert should contain three product sections.");
-  console.assert(pricing.cognia.length === 3, "Cognia should contain three pricing tiers.");
-  console.assert(pricing.convert.length === 3, "Convert should contain three pricing tiers.");
+  console.assert(
+    heroCards.length === 3,
+    "Hero should contain three core cards."
+  );
+
+  console.assert(
+    positioningPoints.includes("mehr Abschlüsse"),
+    "Positioning points should include sales outcome."
+  );
+
+  console.assert(
+    cogniaFeatures.length === 9,
+    "Cognia should contain nine feature cards."
+  );
+
+  console.assert(
+    convertBlocks.length === 3,
+    "Convert should contain three product sections."
+  );
+
+  console.assert(
+    pricing.cognia.length === 4,
+    "Cognia should contain four pricing tiers."
+  );
+
+  console.assert(
+    pricing.convert.length === 4,
+    "Convert should contain four pricing tiers."
+  );
+
+  console.assert(
+    pricing.concierge.length === 4,
+    "Concierge should contain four pricing tiers."
+  );
 }
+
 runSmokeTests();
 
 
@@ -403,15 +376,329 @@ function ConvertDashboard({ type }) {
 }
 
 function PricingPage() {
-  return <><section className="bg-[#070b1c] px-6 pb-10 pt-40 text-white"><div className="mx-auto max-w-5xl text-center"><p className="mb-4 text-cyan-300">Preise</p><h1 className="text-5xl font-light md:text-7xl">Transparente Pakete. <Highlight>Skalierbar</Highlight> nach Bedarf.</h1><p className="mx-auto mt-7 max-w-3xl text-xl text-white/70">Die Preise sind als Startpunkte gedacht. Finale Angebote hängen von Volumen, Integrationen, Sprachen und Betriebsmodell ab.</p></div></section><PricingSection product="cognia" title="Voixero Cognia" subtitle="KI-Telefonie und Kundendienst-Automatisierung." /><PricingSection product="convert" title="Voixero Convert" subtitle="GEO, KI-Sichtbarkeit und Conversion-Optimierung." /></>;
+  const [configProduct, setConfigProduct] =
+    useState("convert");
+
+  const openConfigurator = (product) => {
+    setConfigProduct(product);
+
+    window.setTimeout(() => {
+      const element =
+        document.getElementById(
+          "produktkonfigurator"
+        );
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 50);
+  };
+
+  return (
+    <>
+      <section className="bg-[#070b1c] px-6 pb-10 pt-40 text-white">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-4 text-cyan-300">
+            Preise
+          </p>
+
+          <h1 className="text-5xl font-light md:text-7xl">
+            Transparente Pakete.{" "}
+            <Highlight>
+              Skalierbar
+            </Highlight>{" "}
+            nach Bedarf.
+          </h1>
+
+          <p className="mx-auto mt-7 max-w-3xl text-xl leading-relaxed text-white/70">
+            Wählen Sie den passenden Einstieg
+            für Ihre Anforderungen. Volumen,
+            Integrationen und Zusatzleistungen
+            können individuell konfiguriert
+            werden.
+          </p>
+        </div>
+      </section>
+
+      <PricingSection
+        product="convert"
+        title="Voixero Convert"
+        subtitle="GEO, KI-Sichtbarkeit und kontinuierliche Optimierung."
+        onConfigure={openConfigurator}
+      />
+
+      <PricingSection
+        product="concierge"
+        title="Voixero Concierge"
+        subtitle="Digitale KI-Beratung, Navigation und Customer Journey Automation."
+        onConfigure={openConfigurator}
+      />
+
+      <PricingSection
+        product="cognia"
+        title="Voixero Cognia"
+        subtitle="KI-Telefonie und automatisierte Kundenkommunikation."
+        onConfigure={openConfigurator}
+      />
+
+      <ProductConfigurator
+        product={configProduct}
+        onProductChange={
+          setConfigProduct
+        }
+      />
+    </>
+  );
 }
 
-function PricingSection({ product, title, subtitle }) {
-  return <section className="bg-[#080d22] px-6 py-20 text-white"><div className="mx-auto max-w-7xl"><motion.div {...fadeUp} className="mb-10"><p className="mb-3 text-cyan-300">{subtitle}</p><h2 className="text-4xl font-light md:text-6xl">{title}</h2></motion.div><div className="grid gap-6 lg:grid-cols-3">{pricing[product].map((tier) => <PricingCard key={tier.name} tier={tier} />)}</div><p className="mt-8 text-sm text-white/45">Alle Preise exkl. MwSt. und vorbehaltlich finaler Leistungsdefinition. Setup, Integrationen oder Sonderentwicklungen können separat offeriert werden.</p></div></section>;
+function PricingSection({
+  product,
+  title,
+  subtitle,
+  onConfigure,
+}) {
+  return (
+    <section className="bg-[#080d22] px-6 py-20 text-white">
+      <div className="mx-auto max-w-[1500px]">
+        <motion.div
+          {...fadeUp}
+          className="mb-10"
+        >
+          <p className="mb-3 text-cyan-300">
+            {subtitle}
+          </p>
+
+          <h2 className="text-4xl font-light md:text-6xl">
+            {title}
+          </h2>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {pricing[product].map(
+            (tier) => (
+              <PricingCard
+                key={
+                  tier.id ||
+                  tier.name
+                }
+                tier={tier}
+                product={product}
+                onConfigure={
+                  onConfigure
+                }
+              />
+            )
+          )}
+        </div>
+
+        <p className="mt-8 text-sm leading-relaxed text-white/45">
+          Alle Preise exkl. MwSt.
+          Setup, Mehrvolumen,
+          Zusatzoptionen, Integrationen und
+          Sonderentwicklungen können separat
+          verrechnet werden.
+        </p>
+      </div>
+    </section>
+  );
 }
 
-function PricingCard({ tier }) {
-  return <Card className={`relative p-7 ${tier.highlighted ? "border-cyan-300/50 bg-cyan-300/10 shadow-2xl shadow-cyan-950/30" : ""}`}>{tier.highlighted && <div className="absolute right-5 top-5 rounded-full bg-cyan-300 px-3 py-1 text-sm font-bold text-slate-950">Empfohlen</div>}<h3 className="text-3xl font-light text-white">{tier.name}</h3><div className="mt-5 flex items-end gap-2"><span className="text-4xl font-bold text-cyan-300">{tier.price}</span><span className="pb-1 text-white/50">{tier.period}</span></div><p className="mt-5 min-h-[88px] text-white/65">{tier.description}</p><ul className="mt-7 space-y-3">{tier.features.map((feature) => <li key={feature} className="flex gap-3 text-white/75"><Icon name="check" size="text-lg" className="mt-1 text-cyan-300" />{feature}</li>)}</ul><Button href="#/kontakt" className="mt-8 w-full py-4">{tier.cta}</Button></Card>;
+function PricingCard({
+  tier,
+  product,
+  onConfigure,
+}) {
+  const packageName = tier.name
+    .replace("Convert ", "")
+    .replace("Concierge ", "")
+    .replace("Cognia ", "");
+
+  const isCustom =
+    tier.monthlyPrice === null;
+
+  const formatCHF = (
+    value,
+    decimals = 0
+  ) => {
+    if (
+      value === null ||
+      value === undefined
+    ) {
+      return "Individuell";
+    }
+
+    return `CHF ${Number(
+      value
+    ).toLocaleString("de-CH", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
+
+  const formatNumber = (value) =>
+    Math.round(
+      Number(value || 0)
+    ).toLocaleString("de-CH");
+
+  const handleConfigure = () => {
+    if (onConfigure) {
+      onConfigure(product);
+      return;
+    }
+
+    window.location.hash =
+      "/preise";
+  };
+
+  return (
+    <Card
+      className={`relative flex h-full flex-col p-7 ${
+        tier.highlighted
+          ? "border-cyan-300/50 bg-cyan-300/10 shadow-2xl shadow-cyan-950/30"
+          : ""
+      }`}
+    >
+      {tier.highlighted && (
+        <div className="absolute right-5 top-5 rounded-full bg-cyan-300 px-3 py-1 text-xs font-bold text-slate-950">
+          Empfohlen
+        </div>
+      )}
+
+      <h3 className="min-h-[44px] pr-20 text-3xl font-light text-white">
+        {packageName}
+      </h3>
+
+      <div className="mt-5 flex min-h-[58px] items-end gap-2">
+        <span className="text-4xl font-bold text-cyan-300">
+          {tier.price}
+        </span>
+
+        {tier.period && (
+          <span className="pb-1 text-white/50">
+            {tier.period}
+          </span>
+        )}
+      </div>
+
+      <p className="mt-5 min-h-[105px] leading-relaxed text-white/65">
+        {tier.description}
+      </p>
+
+      <ul className="mt-7 flex-1 space-y-3">
+        {tier.features.map(
+          (feature) => (
+            <li
+              key={feature}
+              className="flex gap-3 leading-relaxed text-white/75"
+            >
+              <Icon
+                name="check"
+                size="text-lg"
+                className="mt-1 shrink-0 text-cyan-300"
+              />
+
+              <span>
+                {feature}
+              </span>
+            </li>
+          )
+        )}
+      </ul>
+
+      <div className="mt-7 border-t border-white/10 pt-5 text-sm">
+        {tier.includedMinutes &&
+          typeof tier.includedMinutes ===
+            "number" && (
+            <div className="mb-2 flex justify-between gap-4">
+              <span className="text-white/40">
+                Inklusiv
+              </span>
+
+              <span className="text-right text-white/70">
+                {formatNumber(
+                  tier.includedMinutes
+                )}{" "}
+                Min.
+              </span>
+            </div>
+          )}
+
+        {tier.overagePerMinute &&
+          typeof tier.overagePerMinute ===
+            "number" && (
+            <div className="mb-2 flex justify-between gap-4">
+              <span className="text-white/40">
+                Mehrverbrauch
+              </span>
+
+              <span className="text-right text-white/70">
+                {formatCHF(
+                  tier.overagePerMinute,
+                  2
+                )}{" "}
+                / Min.
+              </span>
+            </div>
+          )}
+
+        {tier.annualDiscount &&
+          typeof tier.annualDiscount ===
+            "number" && (
+            <div className="mb-2 flex justify-between gap-4">
+              <span className="text-white/40">
+                Jahreszahlung
+              </span>
+
+              <span className="text-right text-cyan-200">
+                −
+                {Math.round(
+                  tier.annualDiscount *
+                    100
+                )}{" "}
+                %
+              </span>
+            </div>
+          )}
+
+        <div className="flex justify-between gap-4">
+          <span className="text-white/40">
+            Setup einmalig
+          </span>
+
+          <span className="text-right text-white/70">
+            {typeof tier.setupFee ===
+            "number"
+              ? formatCHF(
+                  tier.setupFee
+                )
+              : "Individuell"}
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-7">
+        {isCustom ? (
+          <Button
+            href="#/kontakt"
+            className="w-full py-4"
+          >
+            Enterprise anfragen
+          </Button>
+        ) : (
+          <button
+            type="button"
+            onClick={handleConfigure}
+            className="inline-flex w-full items-center justify-center rounded-xl bg-cyan-300 px-6 py-4 text-base font-semibold text-slate-950 shadow-lg shadow-cyan-950/30 transition duration-200 hover:bg-cyan-200 md:text-lg"
+          >
+            Paket konfigurieren
+          </button>
+        )}
+      </div>
+    </Card>
+  );
 }
 
 function ContactPage() {
@@ -474,20 +761,34 @@ function useHashRoute() {
 
 export default function App() {
   const route = useHashRoute();
+
   let Page = Home;
-  if (route === "/cognia") Page = CogniaPage;
-  if (route === "/convert") Page = ConvertPage;
-  if (route === "/preise") Page = PricingPage;
-  if (route === "/kontakt") Page = ContactPage;
-  if (route === "/cognia") Page = CogniaPage;
-if (route === "/convert") Page = ConvertPage;
-if (route === "/concierge") Page = ConciergePage;
-if (route === "/preise") Page = PricingPage;
+
+  if (route === "/convert") {
+    Page = ConvertPage;
+  }
+
+  if (route === "/concierge") {
+    Page = ConciergePage;
+  }
+
+  if (route === "/cognia") {
+    Page = CogniaPage;
+  }
+
+  if (route === "/preise") {
+    Page = PricingPage;
+  }
+
+  if (route === "/kontakt") {
+    Page = ContactPage;
+  }
+
   return (
-  <main className="min-h-screen bg-[#070b1c] font-sans">
-    <Header />
-    <Page />
-    <Footer />
-  </main>
-);
+    <main className="min-h-screen bg-[#070b1c] font-sans">
+      <Header />
+      <Page />
+      <Footer />
+    </main>
+  );
 }

@@ -8,19 +8,38 @@ export default function Footer() {
         <Logo />
 
         <div className="flex flex-wrap gap-5">
-          <a href="#/cognia" className="hover:text-cyan-300">
-            Cognia
-          </a>
-
-          <a href="#/convert" className="hover:text-cyan-300">
+          <a
+            href="#/convert"
+            className="transition hover:text-cyan-300"
+          >
             Convert
           </a>
 
-          <a href="#/preise" className="hover:text-cyan-300">
+          <a
+            href="#/concierge"
+            className="transition hover:text-cyan-300"
+          >
+            Concierge
+          </a>
+
+          <a
+            href="#/cognia"
+            className="transition hover:text-cyan-300"
+          >
+            Cognia
+          </a>
+
+          <a
+            href="#/preise"
+            className="transition hover:text-cyan-300"
+          >
             Preise
           </a>
 
-          <a href="#/kontakt" className="hover:text-cyan-300">
+          <a
+            href="#/kontakt"
+            className="transition hover:text-cyan-300"
+          >
             Kontakt
           </a>
 
