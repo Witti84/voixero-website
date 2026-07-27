@@ -91,7 +91,7 @@ const pricing = {
       period: "/ Monat",
       description: "Für Websites und kleinere Shops, die ihre KI-Sichtbarkeit professionell aufbauen wollen.",
       features: ["GEO Visibility Score", "bis 50 Seiten / Produkte", "Prompt Monitoring", "Basis-Empfehlungen", "Monatliches Reporting"],
-      cta: "90 Tage Demo"
+      cta: "GEO-Analyse anfordern",
     },
     {
       name: "Convert Growth",
@@ -306,7 +306,7 @@ function ConvertPage() {
           </>
         }
         text="Convert optimiert die KI-Sichtbarkeit Ihrer Website oder Ihres Webshops für ChatGPT, Google AI, Perplexity & Co. – damit Ihre Marke gefunden, verstanden und empfohlen wird."
-        primary="90 Tage Demo starten"
+        primary="GEO-Analyse starten"
         secondary="Preise ansehen"
         visual={<ConvertVisual />}
       />
