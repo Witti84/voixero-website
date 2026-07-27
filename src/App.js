@@ -217,7 +217,35 @@ function Positioning() {
   );
 }
 function SolutionTeaser() {
-  return <section className="bg-[#070b1c] px-6 py-24 text-white"><div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2"><ProductCard title="Voixero Cognia" subtitle="KI-Telefonlösung für Service, Support und Vertrieb" text="Automatisiert Kundenkontakte in Echtzeit, integriert sich in bestehende Systeme und entlastet Teams ohne Qualitätsverlust." href="#/cognia" icon="phone" /><ProductCard title="Voixero Convert" subtitle="GEO-Optimierung für Websites und Webshops" text="Macht Ihre Produkte und Dienstleistungen sichtbar in KI-Antworten und verwandelt neuen KI-Traffic in Umsatz." href="#/convert" icon="globe" /></div></section>;
+  return (
+    <section className="bg-[#070b1c] px-6 py-24 text-white">
+      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <ProductCard
+          title="Voixero Convert"
+          subtitle="GEO-Optimierung für Websites und Webshops"
+          text="Macht Ihre Produkte und Dienstleistungen sichtbar in KI-Antworten und verwandelt neuen KI-Traffic in Umsatz."
+          href="#/convert"
+          icon="globe"
+        />
+
+        <ProductCard
+          title="Voixero Concierge"
+          subtitle="KI-Beratung und Navigation für Ihre Website"
+          text="Versteht die Absicht Ihrer Besucher, begleitet sie aktiv durch Ihre Website und führt sie gezielt zur passenden Information, zum Produkt oder zum Abschluss."
+          href="#/concierge"
+          icon="target"
+        />
+
+        <ProductCard
+          title="Voixero Cognia"
+          subtitle="KI-Telefonlösung für Service, Support und Vertrieb"
+          text="Automatisiert Kundenkontakte in Echtzeit, integriert sich in bestehende Systeme und entlastet Teams ohne Qualitätsverlust."
+          href="#/cognia"
+          icon="phone"
+        />
+      </div>
+    </section>
+  );
 }
 
 function ProductCard({ title, subtitle, text, href, icon }) {
