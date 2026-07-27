@@ -3,26 +3,17 @@ import { motion } from "framer-motion";
 import convertImage from "./assets/seo-geo-evolution.png";
 import overviewImage from "./assets/voixero-overview.png";
 import benefitsImage from "./assets/voixero-benefits.png";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Button from "./components/shared/Button";
+import Card from "./components/shared/Card";
+import Icon from "./components/shared/Icon";
+import Logo from "./components/shared/Logo";
+import Highlight from "./components/shared/Highlight";
+import ConciergePage from "./pages/ConciergePage";
+import GeoAnalyzer from "./components/convert/GeoAnalyzer";
 
-const icons = {
-  arrow: "→",
-  bot: "◎",
-  brain: "✦",
-  phone: "☎",
-  spark: "✧",
-  globe: "◌",
-  users: "◉",
-  gauge: "◒",
-  check: "✓",
-  line: "⌁",
-  zap: "⚡",
-  message: "▱",
-  monitor: "▤",
-  settings: "⚙",
-  shield: "▣",
-  target: "◎",
-  cloud: "☁"
-};
+
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
   { title: "KI Kundendienst", icon: "bot", text: "Automatisiert bis zu 75% der Anfragen – schnell, konsistent und 24/7." },
@@ -132,97 +123,12 @@ function runSmokeTests() {
 }
 runSmokeTests();
 
-function Icon({ name, className = "", size = "text-3xl" }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`inline-flex items-center justify-center font-light leading-none ${size} ${className}`}
-    >
-      {icons[name] || icons.spark}
-    </span>
-  );
-}
 
-function Button({ children, variant = "solid", className = "", href = "#/kontakt" }) {
-  const base = "inline-flex items-center justify-center rounded-xl px-6 py-4 text-base md:text-lg font-semibold transition duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-[#070b1c]";
-  const styles = variant === "outline" ? "border border-cyan-300/35 bg-transparent text-cyan-100 hover:bg-cyan-300/10" : "bg-cyan-300 text-slate-950 shadow-lg shadow-cyan-950/30 hover:bg-cyan-200";
-  const isExternal = href.startsWith("http");
 
-  return (
-    <a
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
-      className={`${base} ${styles} ${className}`}
-    >
-      {children}
-    </a>
-  );
-}
 
-function Card({ children, className = "" }) {
-  return <div className={`rounded-3xl border border-cyan-300/15 bg-white/[0.035] ${className}`}>{children}</div>;
-}
 
-function Logo() {
-  return <div className="select-none text-2xl font-light tracking-[0.32em] text-cyan-300 md:text-4xl">VOIXERO</div>;
-}
-
-function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const closeMenu = () => setIsOpen(false);
-
-  return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-cyan-300/10 bg-[#070b1c]/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <a href="#/" aria-label="Voixero Startseite" onClick={closeMenu}>
-          <Logo />
-        </a>
-
-        <nav className="hidden items-center gap-10 text-lg text-white/75 md:flex">
-          <a href="#/" className="font-semibold text-cyan-300">Startseite</a>
-          <a href="#/cognia" className="transition hover:text-cyan-300">Cognia</a>
-          <a href="#/convert" className="transition hover:text-cyan-300">Convert</a>
-          <a href="#/preise" className="transition hover:text-cyan-300">Preise</a>
-        </nav>
-
-        <div className="hidden md:block">
-          <Button href={calendlyLink} className="px-5 py-3 text-sm md:text-base"> Termin vereinbaren</Button>
-        </div>
-
-        <button
-          type="button"
-          aria-label="Menü öffnen"
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-300/25 bg-cyan-300/10 text-2xl text-cyan-200 md:hidden"
-        >
-          {isOpen ? "×" : "☰"}
-        </button>
-      </div>
-
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className="border-t border-cyan-300/10 bg-[#070b1c] px-6 py-6 shadow-2xl shadow-cyan-950/30 md:hidden"
-        >
-          <nav className="mx-auto flex max-w-7xl flex-col gap-4 text-lg text-white/80">
-            <a onClick={closeMenu} href="#/" className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 text-cyan-300">Startseite</a>
-            <a onClick={closeMenu} href="#/cognia" className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 hover:text-cyan-300">Cognia</a>
-            <a onClick={closeMenu} href="#/convert" className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 hover:text-cyan-300">Convert</a>
-            <a onClick={closeMenu} href="#/preise" className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 hover:text-cyan-300">Preise</a>
-            <Button href={calendlyLink} className="mt-2 w-full py-4" onClick={closeMenu}>Termin vereinbaren</Button>
-          </nav>
-        </motion.div>
-      )}
-    </header>
-  );
-}
 
 const fadeUp = { initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.65, ease: "easeOut" }, viewport: { once: true, amount: 0.25 } };
-function Highlight({ children }) { return <span className="font-bold text-cyan-300">{children}</span>; }
 
 function AnimatedOrb() {
   return (
@@ -362,7 +268,89 @@ function CogniaVisual() {
 }
 
 function ConvertPage() {
-  return <><ProductHero label="Voixero Convert" title={<>Aus SEO wird <Highlight>GEO</Highlight>.</>} text="Convert optimiert die KI-Sichtbarkeit Ihrer Website oder Ihres Webshops für ChatGPT, Google AI, Perplexity & Co. – damit Ihre Marke gefunden, verstanden und empfohlen wird." primary="90 Tage Demo starten" secondary="Preise ansehen" visual={<ConvertVisual />} /><section className="bg-[#111025] px-6 py-24 text-white"><div className="mx-auto max-w-7xl"><motion.div {...fadeUp} className="mb-14"><p className="mb-3 text-cyan-300">Convert Module</p><h2 className="text-4xl font-light md:text-6xl">Von Sichtbarkeit zu <Highlight>mehr Umsatz</Highlight>.</h2></motion.div><div className="grid gap-8">{convertBlocks.map((block) => <motion.div {...fadeUp} key={block.title} className="grid gap-10 rounded-[2rem] border border-cyan-300/15 bg-white/[0.035] p-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"><div><Icon name={block.icon} className="mb-5 h-14 w-14 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300" /><h3 className="mb-6 text-4xl font-light"><Highlight>{block.title}</Highlight></h3><ul className="space-y-4 text-xl text-white/75">{block.items.map((item) => <li key={item} className="flex gap-3"><Icon name="check" size="text-xl" className="mt-1 shrink-0 text-cyan-300" />{item}</li>)}</ul></div><ConvertDashboard type={block.dashboardType} /></motion.div>)}</div></div></section><PricingSection product="convert" title="Convert Preise" subtitle="Für Websites, Shops und Unternehmen, die in KI-Antworten sichtbar werden wollen." /></>;
+  return (
+    <>
+      <ProductHero
+        label="Voixero Convert"
+        title={
+          <>
+            Aus SEO wird <Highlight>GEO</Highlight>.
+          </>
+        }
+        text="Convert optimiert die KI-Sichtbarkeit Ihrer Website oder Ihres Webshops für ChatGPT, Google AI, Perplexity & Co. – damit Ihre Marke gefunden, verstanden und empfohlen wird."
+        primary="90 Tage Demo starten"
+        secondary="Preise ansehen"
+        visual={<ConvertVisual />}
+      />
+
+      <GeoAnalyzer />
+
+      <section className="bg-[#111025] px-6 py-24 text-white">
+        <div className="mx-auto max-w-7xl">
+          <motion.div {...fadeUp} className="mb-14">
+            <p className="mb-3 text-cyan-300">
+              Convert Module
+            </p>
+
+            <h2 className="text-4xl font-light md:text-6xl">
+              Von Sichtbarkeit zu{" "}
+              <Highlight>mehr Umsatz</Highlight>.
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8">
+            {convertBlocks.map((block) => (
+              <motion.div
+                {...fadeUp}
+                key={block.title}
+                className="grid gap-10 rounded-[2rem] border border-cyan-300/15 bg-white/[0.035] p-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
+              >
+                <div>
+                  <Icon
+                    name={block.icon}
+                    className="mb-5 h-14 w-14 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300"
+                  />
+
+                  <h3 className="mb-6 text-4xl font-light">
+                    <Highlight>
+                      {block.title}
+                    </Highlight>
+                  </h3>
+
+                  <ul className="space-y-4 text-xl text-white/75">
+                    {block.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3"
+                      >
+                        <Icon
+                          name="check"
+                          size="text-xl"
+                          className="mt-1 shrink-0 text-cyan-300"
+                        />
+
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <ConvertDashboard
+                  type={block.dashboardType}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <PricingSection
+        product="convert"
+        title="Convert Preise"
+        subtitle="Für Websites, Shops und Unternehmen, die in KI-Antworten sichtbar werden wollen."
+      />
+    </>
+  );
 }
 
 function ConvertVisual() {
@@ -445,13 +433,6 @@ function ContactPage() {
   );
 }
 
-function Footer() {
-  return <footer className="border-t border-cyan-300/10 bg-[#050817] px-6 py-10 text-white/55"><div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between"><Logo /><div className="flex flex-wrap gap-5"><a href="#/cognia" className="hover:text-cyan-300">Cognia</a><a href="#/convert" className="hover:text-cyan-300">Convert</a><a href="#/preise" className="hover:text-cyan-300">Preise</a><a href="#/kontakt" className="hover:text-cyan-300">Kontakt</a><a href="#/impressum" className="transition hover:text-cyan-300">
-  Impressum
-</a></div><div>© Voixero · Die Zukunft ist jetzt</div></div></footer>;
-}
-
-
 function useHashRoute() {
   const getRoute = () => window.location.hash.replace("#", "") || "/";
   const [route, setRoute] = useState(getRoute());
@@ -470,5 +451,15 @@ export default function App() {
   if (route === "/convert") Page = ConvertPage;
   if (route === "/preise") Page = PricingPage;
   if (route === "/kontakt") Page = ContactPage;
-  return <main className="min-h-screen bg-[#070b1c] font-sans"><Nav /><Page /><Footer /></main>;
+  if (route === "/cognia") Page = CogniaPage;
+if (route === "/convert") Page = ConvertPage;
+if (route === "/concierge") Page = ConciergePage;
+if (route === "/preise") Page = PricingPage;
+  return (
+  <main className="min-h-screen bg-[#070b1c] font-sans">
+    <Header />
+    <Page />
+    <Footer />
+  </main>
+);
 }
