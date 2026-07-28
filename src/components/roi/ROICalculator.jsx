@@ -4,7 +4,6 @@ import Button from "../shared/Button";
 import { pricing } from "../../data/pricing";
 
 const EMPLOYER_COST_FACTOR = 1.25;
-const WORK_HOURS_PER_MONTH = 173;
 
 const productLabels = {
   convert: "Convert",
@@ -59,18 +58,6 @@ function getVoiceSurcharge(tier, voiceType) {
   }
 
   return 0;
-}
-
-function getVoiceLabel(voiceType) {
-  if (voiceType === "premium") {
-    return "Premium Voice";
-  }
-
-  if (voiceType === "gold") {
-    return "Gold Voice";
-  }
-
-  return "Standard Voice";
 }
 
 function getAdjustedIncludedMinutes(tier, voiceType) {
