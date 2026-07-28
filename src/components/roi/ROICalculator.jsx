@@ -734,7 +734,7 @@ function CogniaROI() {
 
         <div className="mt-9">
           <Button
-            href="#/kontakt"
+            href="https://calendly.com/voixero_demo/30min"
             className="w-full"
           >
             Persönliche ROI-Analyse anfordern
@@ -1028,7 +1028,7 @@ function ConciergeROI() {
 
         <div className="mt-9">
           <Button
-            href="#/kontakt"
+            href="https://calendly.com/voixero_demo/30min"
             className="w-full"
           >
             Concierge Potenzial besprechen

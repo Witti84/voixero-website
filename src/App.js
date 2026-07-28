@@ -18,6 +18,9 @@ import ROIPage from "./pages/ROIPage";
 import GEOAnalysisPage from "./pages/GEOAnalysisPage";
 import ConfiguratorPage from "./pages/ConfiguratorPage";
 import ConfiguratorCTA from "./components/shared/ConfiguratorCTA";
+import ImpressumPage from "./pages/ImpressumPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
+import SolutionsPage from "./pages/SolutionsPage";
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
@@ -133,20 +136,107 @@ function AnimatedParticles() {
 function Home() {
   return (
     <>
-      <section id="home" className="relative min-h-screen overflow-hidden bg-[#070b1c] px-6 pt-44 text-white md:pt-36">
+      <section
+        id="home"
+        className="relative min-h-screen overflow-hidden bg-[#070b1c] px-6 pt-44 text-white md:pt-36"
+      >
         <AnimatedParticles />
-        <motion.div className="absolute left-1/2 top-1/4 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl" animate={{ scale: [1, 1.12, 1], x: [-20, 20, -20] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} />
+
+        <motion.div
+          className="absolute left-1/2 top-1/4 h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl"
+          animate={{
+            scale: [1, 1.12, 1],
+            x: [-20, 20, -20],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
         <div className="relative mx-auto grid min-h-[calc(100vh-9rem)] max-w-7xl items-center gap-14 py-16 lg:grid-cols-[0.95fr_1.05fr]">
-          <motion.div initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <motion.div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100" animate={{ boxShadow: ["0 0 0px rgba(28,173,198,0)", "0 0 28px rgba(28,173,198,.28)", "0 0 0px rgba(28,173,198,0)"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}><Icon name="spark" size="text-lg" /> Die Zukunft ist jetzt</motion.div>
-            <h1 className="max-w-3xl text-5xl font-light leading-tight md:text-7xl">Die <Highlight>Zukunft</Highlight> der perfekten Symbiose zwischen <Highlight>Mensch</Highlight> und <Highlight>KI</Highlight></h1>
-            <motion.div className="mt-8 h-1 rounded-full bg-gradient-to-r from-cyan-300 to-transparent" initial={{ width: 0, opacity: 0 }} animate={{ width: 220, opacity: 1 }} transition={{ delay: 0.45, duration: 0.9 }} />
-            <div className="mt-10 space-y-4 text-xl text-white/80 md:text-2xl"><p><Highlight>optimiert</Highlight> und automatisiert durch KI</p><p><Highlight>perfektioniert</Highlight> und koordiniert durch Menschen</p><p><Highlight>maximiert</Highlight> Sichtbarkeit Ihrer Produkte und Dienstleistungen</p></div>
-            <div className="mt-10 flex flex-wrap gap-4"><Button href="#/kontakt" className="px-7 py-5">Jetzt Termin vereinbaren <Icon name="arrow" size="text-2xl" className="ml-2" /></Button><Button href="#/cognia" variant="outline" className="px-7 py-5">Unsere Lösungen</Button></div>
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100"
+              animate={{
+                boxShadow: [
+                  "0 0 0px rgba(28,173,198,0)",
+                  "0 0 28px rgba(28,173,198,.28)",
+                  "0 0 0px rgba(28,173,198,0)",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <Icon name="spark" size="text-lg" />
+              Die Zukunft ist jetzt
+            </motion.div>
+
+            <h1 className="max-w-3xl text-5xl font-light leading-tight md:text-7xl">
+              Die <Highlight>Zukunft</Highlight> der perfekten
+              Symbiose zwischen <Highlight>Mensch</Highlight> und{" "}
+              <Highlight>KI</Highlight>
+            </h1>
+
+            <motion.div
+              className="mt-8 h-1 rounded-full bg-gradient-to-r from-cyan-300 to-transparent"
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 220, opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.9 }}
+            />
+
+            <div className="mt-10 space-y-4 text-xl text-white/80 md:text-2xl">
+              <p>
+                <Highlight>optimiert</Highlight> und automatisiert
+                durch KI
+              </p>
+
+              <p>
+                <Highlight>perfektioniert</Highlight> und
+                koordiniert durch Menschen
+              </p>
+
+              <p>
+                <Highlight>maximiert</Highlight> Sichtbarkeit Ihrer
+                Produkte und Dienstleistungen
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button
+                href="https://calendly.com/voixero_demo/30min"
+                className="px-7 py-5"
+              >
+                Jetzt Termin vereinbaren
+                <Icon
+                  name="arrow"
+                  size="text-2xl"
+                  className="ml-2"
+                />
+              </Button>
+
+              <Button
+                href="#/loesungen"
+                variant="outline"
+                className="px-7 py-5"
+              >
+                Unsere Lösungen
+              </Button>
+            </div>
           </motion.div>
+
           <AnimatedOrb />
         </div>
       </section>
+
       <OverviewSection />
       <Positioning />
       <SolutionTeaser />
@@ -235,7 +325,7 @@ function ProductHero({
   primary,
   secondary,
   visual,
-  primaryHref = "#/kontakt",
+  primaryHref = "https://calendly.com/voixero_demo/30min",
   secondaryHref = "#/preise",
 }) {
   return (
@@ -791,7 +881,7 @@ function PricingCard({
       <div className="mt-7">
         {isCustom ? (
           <Button
-            href="#/kontakt"
+            href="https://calendly.com/voixero_demo/30min"
             className="w-full py-4"
           >
             Enterprise anfragen
@@ -881,6 +971,9 @@ if (route === "/konfigurator") Page = ConfiguratorPage;
 if (route === "/roi") Page = ROIPage;
 if (route === "/geo-analyse") Page = GEOAnalysisPage;
 if (route === "/kontakt") Page = ContactPage;
+if (route === "/impressum") Page = ImpressumPage;
+if (route === "/datenschutz") Page = DatenschutzPage;
+if (route === "/loesungen") Page = SolutionsPage;
 
   return (
     <main className="min-h-screen bg-[#070b1c] font-sans">

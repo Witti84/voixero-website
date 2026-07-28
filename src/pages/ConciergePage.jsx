@@ -45,7 +45,7 @@ export default function ConciergePage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Button
-                href="#/kontakt"
+                href="https://calendly.com/voixero_demo/30min"
                 className="px-7 py-5"
               >
                 Concierge kennenlernen

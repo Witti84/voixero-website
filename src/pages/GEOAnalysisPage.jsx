@@ -32,7 +32,7 @@ export default function GEOAnalysisPage() {
             </Button>
 
             <Button
-              href="#/kontakt"
+              href="https://calendly.com/voixero_demo/30min"
               variant="secondary"
             >
               GEO-Potenzial besprechen
