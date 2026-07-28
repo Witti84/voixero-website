@@ -49,6 +49,12 @@ export default function Footer() {
           >
             Impressum
           </a>
+          <a
+  href="#/datenschutz"
+  className="transition hover:text-cyan-300"
+>
+  Datenschutz
+</a>
         </div>
 
         <div>© Voixero · Die Zukunft ist jetzt</div>
