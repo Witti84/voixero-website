@@ -59,6 +59,13 @@ export default function Header() {
           >
             Preise
           </a>
+
+          <a
+            href="#/roi"
+            className="transition hover:text-cyan-300"
+          >
+            ROI
+          </a>
         </nav>
 
         {/* Desktop CTA */}
@@ -130,6 +137,14 @@ export default function Header() {
               className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 hover:text-cyan-300"
             >
               Preise
+            </a>
+
+            <a
+              onClick={closeMenu}
+              href="#/roi"
+              className="rounded-xl border border-cyan-300/10 bg-white/[0.03] px-4 py-3 hover:text-cyan-300"
+            >
+              ROI
             </a>
 
             <Button

@@ -4,6 +4,7 @@ import Button from "../components/shared/Button";
 import Card from "../components/shared/Card";
 import Icon from "../components/shared/Icon";
 import Highlight from "../components/shared/Highlight";
+import ConfiguratorCTA from "../components/shared/ConfiguratorCTA";
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -24,23 +25,35 @@ export default function ConciergePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="mb-5 text-cyan-300">Voixero Concierge</p>
+            <p className="mb-5 text-cyan-300">
+              Voixero Concierge
+            </p>
 
             <h1 className="text-5xl font-light leading-tight md:text-7xl">
               Ihre Website bekommt einen{" "}
-              <Highlight>persönlichen KI-Berater.</Highlight>
+              <Highlight>
+                persönlichen KI-Berater.
+              </Highlight>
             </h1>
 
             <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/75 md:text-2xl">
-              Concierge versteht, was Ihre Besucher suchen, begleitet sie in
-              Echtzeit durch Ihre Website und führt sie gezielt zur passenden
-              Information, zum Produkt oder zum Abschluss.
+              Concierge versteht, was Ihre Besucher suchen,
+              begleitet sie in Echtzeit durch Ihre Website und
+              führt sie gezielt zur passenden Information, zum
+              Produkt oder zum Abschluss.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="#/kontakt" className="px-7 py-5">
+              <Button
+                href="#/kontakt"
+                className="px-7 py-5"
+              >
                 Concierge kennenlernen
-                <Icon name="arrow" size="text-2xl" className="ml-2" />
+                <Icon
+                  name="arrow"
+                  size="text-2xl"
+                  className="ml-2"
+                />
               </Button>
 
               <Button
@@ -61,8 +74,13 @@ export default function ConciergePage() {
           >
             <div className="mb-6 flex items-center justify-between">
               <div>
-                <p className="text-sm text-white/45">Live Website</p>
-                <p className="font-semibold text-white">Ihr Unternehmen</p>
+                <p className="text-sm text-white/45">
+                  Live Website
+                </p>
+
+                <p className="font-semibold text-white">
+                  Ihr Unternehmen
+                </p>
               </div>
 
               <div className="rounded-full bg-emerald-400/15 px-3 py-2 text-sm text-emerald-200">
@@ -71,7 +89,10 @@ export default function ConciergePage() {
             </div>
 
             <div className="rounded-2xl border border-cyan-300/10 bg-black/20 p-6">
-              <p className="text-sm text-white/45">Besucher</p>
+              <p className="text-sm text-white/45">
+                Besucher
+              </p>
+
               <p className="mt-2 text-lg text-white">
                 „Welches Produkt passt zu meinem Unternehmen?“
               </p>
@@ -92,17 +113,24 @@ export default function ConciergePage() {
                 ease: "easeInOut",
               }}
             >
-              <p className="text-sm text-cyan-300">Voixero Concierge</p>
+              <p className="text-sm text-cyan-300">
+                Voixero Concierge
+              </p>
 
               <p className="mt-2 text-lg leading-relaxed text-white/80">
-                „Gerne. Ich stelle Ihnen zwei kurze Fragen und führe Sie danach
-                direkt zur passenden Lösung.“
+                „Gerne. Ich stelle Ihnen zwei kurze Fragen und
+                führe Sie danach direkt zur passenden Lösung.“
               </p>
             </motion.div>
 
             <div className="mt-4 rounded-2xl border border-cyan-300/20 bg-white/[0.04] p-5">
               <div className="mb-3 flex items-center gap-3">
-                <Icon name="target" size="text-xl" className="text-cyan-300" />
+                <Icon
+                  name="target"
+                  size="text-xl"
+                  className="text-cyan-300"
+                />
+
                 <span className="font-semibold text-cyan-200">
                   Nächster Schritt erkannt
                 </span>
@@ -121,18 +149,26 @@ export default function ConciergePage() {
         className="bg-[#080d22] px-6 py-24 text-white"
       >
         <div className="mx-auto max-w-7xl">
-          <motion.div {...fadeUp} className="max-w-4xl">
-            <p className="mb-3 text-cyan-300">Mehr als ein Chatbot</p>
+          <motion.div
+            {...fadeUp}
+            className="max-w-4xl"
+          >
+            <p className="mb-3 text-cyan-300">
+              Mehr als ein Chatbot
+            </p>
 
             <h2 className="text-4xl font-light leading-tight md:text-6xl">
               Nicht nur antworten.{" "}
-              <Highlight>Aktiv zum Ziel führen.</Highlight>
+              <Highlight>
+                Aktiv zum Ziel führen.
+              </Highlight>
             </h2>
 
             <p className="mt-6 text-xl leading-relaxed text-white/70">
-              Klassische Chatbots erklären, wo etwas zu finden ist. Concierge
-              begleitet den Besucher durch den digitalen Prozess und unterstützt
-              ihn genau dort, wo Hilfe benötigt wird.
+              Klassische Chatbots erklären, wo etwas zu finden
+              ist. Concierge begleitet den Besucher durch den
+              digitalen Prozess und unterstützt ihn genau dort,
+              wo Hilfe benötigt wird.
             </p>
           </motion.div>
 
@@ -148,8 +184,9 @@ export default function ConciergePage() {
               </h3>
 
               <p className="mt-4 leading-relaxed text-white/65">
-                Concierge erkennt, was der Besucher tatsächlich erreichen
-                möchte – unabhängig davon, wie die Frage formuliert wird.
+                Concierge erkennt, was der Besucher tatsächlich
+                erreichen möchte – unabhängig davon, wie die
+                Frage formuliert wird.
               </p>
             </Card>
 
@@ -164,8 +201,9 @@ export default function ConciergePage() {
               </h3>
 
               <p className="mt-4 leading-relaxed text-white/65">
-                Inhalte, Buttons, Formulare und nächste Schritte werden
-                kontextbezogen erklärt und gezielt hervorgehoben.
+                Inhalte, Buttons, Formulare und nächste Schritte
+                werden kontextbezogen erklärt und gezielt
+                hervorgehoben.
               </p>
             </Card>
 
@@ -180,13 +218,16 @@ export default function ConciergePage() {
               </h3>
 
               <p className="mt-4 leading-relaxed text-white/65">
-                Weniger Suchen, weniger Abbrüche und ein deutlich einfacherer
-                Weg vom ersten Interesse bis zum erfolgreichen Abschluss.
+                Weniger Suchen, weniger Abbrüche und ein deutlich
+                einfacherer Weg vom ersten Interesse bis zum
+                erfolgreichen Abschluss.
               </p>
             </Card>
           </div>
         </div>
       </section>
+
+      <ConfiguratorCTA context="concierge" />
     </>
   );
 }

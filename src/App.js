@@ -14,7 +14,10 @@ import ConciergePage from "./pages/ConciergePage";
 import GeoAnalyzer from "./components/convert/GeoAnalyzer";
 import { pricing } from "./data/pricing";
 import ProductConfigurator from "./components/pricing/ProductConfigurator";
-
+import ROIPage from "./pages/ROIPage";
+import GEOAnalysisPage from "./pages/GEOAnalysisPage";
+import ConfiguratorPage from "./pages/ConfiguratorPage";
+import ConfiguratorCTA from "./components/shared/ConfiguratorCTA";
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
@@ -225,10 +228,20 @@ function ProductCard({ title, subtitle, text, href, icon }) {
   return <motion.a {...fadeUp} href={href} className="group rounded-[2rem] border border-cyan-300/15 bg-white/[0.035] p-8 shadow-2xl shadow-cyan-950/20 transition hover:border-cyan-300/40 hover:bg-cyan-300/5"><Icon name={icon} className="mb-8 h-16 w-16 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300" /><p className="mb-3 text-cyan-300">{subtitle}</p><h3 className="text-4xl font-light text-white">{title}</h3><p className="mt-5 text-xl leading-relaxed text-white/65">{text}</p><div className="mt-8 text-lg font-bold text-cyan-200">Mehr erfahren <span className="transition group-hover:translate-x-2 inline-block">→</span></div></motion.a>;
 }
 
-function ProductHero({ label, title, text, primary, secondary, visual }) {
+function ProductHero({
+  label,
+  title,
+  text,
+  primary,
+  secondary,
+  visual,
+  primaryHref = "#/kontakt",
+  secondaryHref = "#/preise",
+}) {
   return (
     <section className="relative overflow-hidden bg-[#070b1c] px-6 pb-20 pt-48 text-white md:pt-40">
       <AnimatedParticles />
+
       <div className="absolute right-0 top-20 h-[520px] w-[520px] rounded-full bg-cyan-300/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
@@ -238,15 +251,36 @@ function ProductHero({ label, title, text, primary, secondary, visual }) {
           transition={{ duration: 0.7 }}
           className="max-w-3xl"
         >
-          <p className="mb-5 text-cyan-300">{label}</p>
-          <h1 className="text-5xl font-light leading-tight md:text-7xl">{title}</h1>
-          <p className="mt-8 text-2xl leading-relaxed text-white/75">{text}</p>
+          <p className="mb-5 text-cyan-300">
+            {label}
+          </p>
+
+          <h1 className="text-5xl font-light leading-tight md:text-7xl">
+            {title}
+          </h1>
+
+          <p className="mt-8 text-2xl leading-relaxed text-white/75">
+            {text}
+          </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#/kontakt" className="px-7 py-5">
-              {primary} <Icon name="arrow" size="text-2xl" className="ml-2" />
+            <Button
+              href={primaryHref}
+              className="px-7 py-5"
+            >
+              {primary}
+              <Icon
+                name="arrow"
+                size="text-2xl"
+                className="ml-2"
+              />
             </Button>
-            <Button href="#/preise" variant="outline" className="px-7 py-5">
+
+            <Button
+              href={secondaryHref}
+              variant="outline"
+              className="px-7 py-5"
+            >
               {secondary}
             </Button>
           </div>
@@ -261,13 +295,83 @@ function ProductHero({ label, title, text, primary, secondary, visual }) {
 }
 
 function CogniaPage() {
-  return <><ProductHero label="Voixero Cognia" title={<>KI-Telefonie, die <Highlight>Service</Highlight> skalierbar macht.</>} text="Cognia nimmt Anrufe entgegen, versteht Anliegen, beantwortet Fragen, erstellt Tickets und übergibt komplexe Fälle an Menschen – zuverlässig, mehrsprachig und rund um die Uhr." primary="Cognia Demo buchen" secondary="Preise ansehen" visual={<CogniaVisual />} /><section className="bg-[#080d22] px-6 py-24 text-white"><div className="mx-auto max-w-7xl"><motion.div {...fadeUp} className="mb-14"><p className="mb-3 text-cyan-300">Warum Cognia</p><h2 className="text-4xl font-light md:text-6xl">Der einfachste Weg zu <Highlight>KI-Kundendienst</Highlight> in Echtzeit.</h2></motion.div><div className="grid gap-4 md:grid-cols-3">{cogniaFeatures.map(([title, text, icon], idx) => <Card key={title} className="p-6"><div className="flex gap-5"><Icon name={icon} className="h-14 w-14 shrink-0 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300" /><div><div className="mb-2 text-xl font-bold text-cyan-200">{idx + 1}. {title}</div><p className="text-white/65">{text}</p></div></div></Card>)}</div></div></section><PricingSection product="cognia" title="Cognia Preise" subtitle="Skalierbar nach Gesprächsvolumen, Integrationen und gewünschtem Automatisierungsgrad." /></>;
+  return (
+    <>
+      <ProductHero
+        label="Voixero Cognia"
+        title={
+          <>
+            KI-Telefonie, die{" "}
+            <Highlight>Service</Highlight>{" "}
+            skalierbar macht.
+          </>
+        }
+        text="Cognia nimmt Anrufe entgegen, versteht Anliegen, beantwortet Fragen, erstellt Tickets und übergibt komplexe Fälle an Menschen – zuverlässig, mehrsprachig und rund um die Uhr."
+        primary="Cognia Demo buchen"
+        secondary="Preise ansehen"
+        visual={<CogniaVisual />}
+      />
+
+      <section className="bg-[#080d22] px-6 py-24 text-white">
+        <div className="mx-auto max-w-7xl">
+          <motion.div {...fadeUp} className="mb-14">
+            <p className="mb-3 text-cyan-300">
+              Warum Cognia
+            </p>
+
+            <h2 className="text-4xl font-light md:text-6xl">
+              Der einfachste Weg zu{" "}
+              <Highlight>
+                KI-Kundendienst
+              </Highlight>{" "}
+              in Echtzeit.
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {cogniaFeatures.map(
+              ([title, text, icon], idx) => (
+                <Card
+                  key={title}
+                  className="p-6"
+                >
+                  <div className="flex gap-5">
+                    <Icon
+                      name={icon}
+                      className="h-14 w-14 shrink-0 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300"
+                    />
+
+                    <div>
+                      <div className="mb-2 text-xl font-bold text-cyan-200">
+                        {idx + 1}. {title}
+                      </div>
+
+                      <p className="text-white/65">
+                        {text}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      <PricingSection
+        product="cognia"
+        title="Cognia Preise"
+        subtitle="Skalierbar nach Gesprächsvolumen, Integrationen und gewünschtem Automatisierungsgrad."
+      />
+
+      <ConfiguratorCTA context="cognia" />
+    </>
+  );
 }
 
 function CogniaVisual() {
   return <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.035] p-7 shadow-2xl shadow-cyan-950/30"><div className="mb-6 inline-flex rounded-lg bg-emerald-400/15 px-3 py-2 text-sm text-emerald-200">System bereit</div><div className="grid grid-cols-2 gap-4 md:grid-cols-3">{["98% Verständnis", "1.2 Sek. Antwort", "24/7 verfügbar", "100% KI Gespräche", "92% Erfolgsquote", "4.8/5 Bewertung"].map((metric) => <div className="rounded-2xl border border-cyan-300/10 bg-black/20 p-5 text-center text-white/75" key={metric}>{metric}</div>)}</div><div className="mt-6 rounded-2xl border border-cyan-300/10 bg-cyan-300/10 p-5"><p className="text-cyan-100">Live Call Simulation</p><p className="mt-2 text-white/65">„Guten Tag, ich helfe Ihnen gerne. Geht es um eine Bestellung, eine Rechnung oder eine technische Frage?“</p></div></motion.div>;
 }
-
 function ConvertPage() {
   return (
     <>
@@ -280,7 +384,9 @@ function ConvertPage() {
         }
         text="Convert optimiert die KI-Sichtbarkeit Ihrer Website oder Ihres Webshops für ChatGPT, Google AI, Perplexity & Co. – damit Ihre Marke gefunden, verstanden und empfohlen wird."
         primary="GEO-Analyse starten"
+        primaryHref="#/geo-analyse"
         secondary="Preise ansehen"
+        secondaryHref="#/preise"
         visual={<ConvertVisual />}
       />
 
@@ -350,9 +456,11 @@ function ConvertPage() {
         title="Convert Preise"
         subtitle="Für Websites, Shops und Unternehmen, die in KI-Antworten sichtbar werden wollen."
       />
+      <ConfiguratorCTA context="convert" />
     </>
   );
 }
+
 
 function ConvertVisual() {
   return (
@@ -450,6 +558,7 @@ function PricingPage() {
           setConfigProduct
         }
       />
+      <ConfiguratorCTA context="pricing" />
     </>
   );
 }
@@ -764,25 +873,14 @@ export default function App() {
 
   let Page = Home;
 
-  if (route === "/convert") {
-    Page = ConvertPage;
-  }
-
-  if (route === "/concierge") {
-    Page = ConciergePage;
-  }
-
-  if (route === "/cognia") {
-    Page = CogniaPage;
-  }
-
-  if (route === "/preise") {
-    Page = PricingPage;
-  }
-
-  if (route === "/kontakt") {
-    Page = ContactPage;
-  }
+if (route === "/convert") Page = ConvertPage;
+if (route === "/concierge") Page = ConciergePage;
+if (route === "/cognia") Page = CogniaPage;
+if (route === "/preise") Page = PricingPage;
+if (route === "/konfigurator") Page = ConfiguratorPage;
+if (route === "/roi") Page = ROIPage;
+if (route === "/geo-analyse") Page = GEOAnalysisPage;
+if (route === "/kontakt") Page = ContactPage;
 
   return (
     <main className="min-h-screen bg-[#070b1c] font-sans">
