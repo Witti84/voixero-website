@@ -1,6 +1,7 @@
 import React from "react";
 import GeoAnalyzer from "../components/convert/GeoAnalyzer";
 import Button from "../components/shared/Button";
+import ConfiguratorCTA from "../components/shared/ConfiguratorCTA";
 
 export default function GEOAnalysisPage() {
   return (
@@ -9,7 +10,7 @@ export default function GEOAnalysisPage() {
         <GeoAnalyzer />
       </div>
 
-      <section className="bg-[#070b1c] px-6 pb-24 pt-8 text-white">
+      <section className="bg-[#070b1c] px-6 pb-10 pt-8 text-white">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-cyan-300/15 bg-white/[0.035] p-8 text-center md:p-12">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">
             Nächster Schritt
@@ -39,6 +40,8 @@ export default function GEOAnalysisPage() {
           </div>
         </div>
       </section>
+
+      <ConfiguratorCTA context="convert" />
     </>
   );
 }
