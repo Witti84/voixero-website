@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import convertImage from "./assets/seo-geo-evolution.png";
 import overviewImage from "./assets/voixero-overview.png";
 import benefitsImage from "./assets/voixero-benefits.png";
 import Header from "./components/layout/Header";
