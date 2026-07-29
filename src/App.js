@@ -21,6 +21,7 @@ import ConfiguratorCTA from "./components/shared/ConfiguratorCTA";
 import ImpressumPage from "./pages/ImpressumPage";
 import DatenschutzPage from "./pages/DatenschutzPage";
 import SolutionsPage from "./pages/SolutionsPage";
+import convertVideo from "./assets/voixero-convert-video.mp4";
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
@@ -560,11 +561,19 @@ function ConvertVisual() {
       transition={{ duration: 0.8 }}
       className="relative overflow-hidden rounded-3xl border border-cyan-300/20 bg-[#070b1c] p-3 shadow-2xl shadow-cyan-950/30"
     >
-      <img
-        src={convertImage}
-        alt="Voixero Convert"
-        className="w-full rounded-2xl object-cover shadow-[0_0_80px_rgba(28,173,198,0.25)]"
-      />
+      <video
+        controls
+        preload="metadata"
+        playsInline
+        className="w-full rounded-2xl bg-[#070b1c] object-cover shadow-[0_0_80px_rgba(28,173,198,0.25)]"
+      >
+        <source
+          src={convertVideo}
+          type="video/mp4"
+        />
+
+        Ihr Browser unterstützt die Videowiedergabe nicht.
+      </video>
     </motion.div>
   );
 }
