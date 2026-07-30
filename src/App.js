@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import overviewImage from "./assets/voixero-overview.png";
 import benefitsImage from "./assets/voixero-benefits.png";
@@ -21,6 +21,7 @@ import ImpressumPage from "./pages/ImpressumPage";
 import DatenschutzPage from "./pages/DatenschutzPage";
 import SolutionsPage from "./pages/SolutionsPage";
 import convertVideo from "./assets/voixero-convert-video.mp4";
+import cogniaDemoAudio from "./assets/SusiVs.KIM.mpeg";
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
@@ -376,9 +377,11 @@ function ProductHero({
           </div>
         </motion.div>
 
-        <div className="mt-16">
-          {visual}
-        </div>
+{visual && (
+  <div className="mt-16">
+    {visual}
+  </div>
+)}
       </div>
     </section>
   );
@@ -387,66 +390,22 @@ function ProductHero({
 function CogniaPage() {
   return (
     <>
-      <ProductHero
-        label="Voixero Cognia"
-        title={
-          <>
-            KI-Telefonie, die{" "}
-            <Highlight>Service</Highlight>{" "}
-            skalierbar macht.
-          </>
-        }
-        text="Cognia nimmt Anrufe entgegen, versteht Anliegen, beantwortet Fragen, erstellt Tickets und übergibt komplexe Fälle an Menschen – zuverlässig, mehrsprachig und rund um die Uhr."
-        primary="Cognia Demo buchen"
-        secondary="Preise ansehen"
-        visual={<CogniaVisual />}
-      />
-
-      <section className="bg-[#080d22] px-6 py-24 text-white">
-        <div className="mx-auto max-w-7xl">
-          <motion.div {...fadeUp} className="mb-14">
-            <p className="mb-3 text-cyan-300">
-              Warum Cognia
-            </p>
-
-            <h2 className="text-4xl font-light md:text-6xl">
-              Der einfachste Weg zu{" "}
-              <Highlight>
-                KI-Kundendienst
-              </Highlight>{" "}
-              in Echtzeit.
-            </h2>
-          </motion.div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {cogniaFeatures.map(
-              ([title, text, icon], idx) => (
-                <Card
-                  key={title}
-                  className="p-6"
-                >
-                  <div className="flex gap-5">
-                    <Icon
-                      name={icon}
-                      className="h-14 w-14 shrink-0 rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-300"
-                    />
-
-                    <div>
-                      <div className="mb-2 text-xl font-bold text-cyan-200">
-                        {idx + 1}. {title}
-                      </div>
-
-                      <p className="text-white/65">
-                        {text}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              )
-            )}
-          </div>
-        </div>
-      </section>
+<ProductHero
+  label="Voixero Cognia"
+  title={
+    <>
+      KI-Telefonie, die{" "}
+      <Highlight>Service</Highlight>{" "}
+      skalierbar macht.
+    </>
+  }
+  text="Cognia nimmt Anrufe entgegen, versteht Anliegen, beantwortet Fragen, erstellt Tickets und übergibt komplexe Fälle an Menschen – zuverlässig, mehrsprachig und rund um die Uhr."
+  primary="Live mit Moni sprechen"
+  primaryHref="tel:+41445155278"
+  secondary="Preise ansehen"
+  secondaryHref="#/preise"
+/>
+      <CogniaAudioComparison />
 
       <PricingSection
         product="cognia"
@@ -459,9 +418,234 @@ function CogniaPage() {
   );
 }
 
-function CogniaVisual() {
-  return <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="rounded-[2rem] border border-cyan-300/20 bg-white/[0.035] p-7 shadow-2xl shadow-cyan-950/30"><div className="mb-6 inline-flex rounded-lg bg-emerald-400/15 px-3 py-2 text-sm text-emerald-200">System bereit</div><div className="grid grid-cols-2 gap-4 md:grid-cols-3">{["98% Verständnis", "1.2 Sek. Antwort", "24/7 verfügbar", "100% KI Gespräche", "92% Erfolgsquote", "4.8/5 Bewertung"].map((metric) => <div className="rounded-2xl border border-cyan-300/10 bg-black/20 p-5 text-center text-white/75" key={metric}>{metric}</div>)}</div><div className="mt-6 rounded-2xl border border-cyan-300/10 bg-cyan-300/10 p-5"><p className="text-cyan-100">Live Call Simulation</p><p className="mt-2 text-white/65">„Guten Tag, ich helfe Ihnen gerne. Geht es um eine Bestellung, eine Rechnung oder eine technische Frage?“</p></div></motion.div>;
+
+function CogniaAudioComparison() {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const waveformBars = [
+    30, 48, 72, 88, 60, 96, 76, 52, 82, 92, 64, 42, 70, 86, 58,
+    74, 50, 36, 62, 78, 54, 40, 66, 48, 32,
+  ];
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      if (audio.paused) {
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+    } catch (error) {
+      console.error("Audio konnte nicht abgespielt werden:", error);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    setDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
+  };
+
+  const handleSeek = (event) => {
+    const audio = audioRef.current;
+    const newTime = Number(event.target.value);
+    if (!audio) return;
+
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds)) return "0:00";
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0");
+
+    return `${minutes}:${remainingSeconds}`;
+  };
+
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <section className="bg-[#070b1c] px-6 py-24 text-white">
+      <motion.div
+        {...fadeUp}
+        className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-cyan-300/20 bg-gradient-to-br from-[#101b35] via-[#0b1328] to-[#070b1c] px-7 py-10 shadow-[0_30px_100px_rgba(0,0,0,0.35)] md:px-12 md:py-14"
+      >
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.35fr_0.8fr] lg:items-center">
+          <div className="text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/35">
+              Ausgangspunkt
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-white">Susi</h3>
+            <p className="mt-1 text-sm font-semibold text-cyan-300">
+              KI Generation 1
+            </p>
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
+              Strukturierte Dialoge und solide Spracherkennung als Basis der ersten
+              Cognia-Generation.
+            </p>
+            <div className="mt-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-white/45">
+              Erste Voice-Generation
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-6 flex items-center justify-center gap-4">
+              <div className="h-px w-10 bg-cyan-300/25" />
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">
+                Cognia Voice Engine
+              </p>
+              <div className="h-px w-10 bg-cyan-300/25" />
+            </div>
+
+            <div className="rounded-[2rem] border border-cyan-300/15 bg-black/20 p-6 backdrop-blur-sm md:p-8">
+              <button
+                type="button"
+                onClick={togglePlayback}
+className="group flex min-h-[150px] w-full items-center justify-center rounded-[1.5rem] border border-cyan-300/10 bg-[#0b1328]/70 px-6 transition duration-300 hover:border-cyan-300/30 hover:bg-cyan-300/[0.035]"
+                aria-label={isPlaying ? "Audio pausieren" : "Audio abspielen"}
+              >
+<span className="mr-6 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-cyan-300/35 bg-cyan-300/[0.08] text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.12)] transition duration-300 group-hover:scale-105 group-hover:border-cyan-300/60 group-hover:bg-cyan-300/[0.14]">
+  {isPlaying ? (
+    <span className="flex items-center gap-1.5">
+      <span className="h-5 w-1.5 rounded-full bg-cyan-300" />
+      <span className="h-5 w-1.5 rounded-full bg-cyan-300" />
+    </span>
+  ) : (
+    <span className="ml-1 block h-0 w-0 border-y-[9px] border-l-[14px] border-y-transparent border-l-cyan-300" />
+  )}
+</span>
+
+                <span className="flex h-24 flex-1 items-center justify-center gap-[5px]">
+                  {waveformBars.map((height, index) => {
+                    const active =
+                      (index / waveformBars.length) * 100 <= progress;
+
+                    return (
+                      <span
+                        key={`${height}-${index}`}
+                        className={`block w-[5px] rounded-full transition-all duration-300 ${
+                          active ? "bg-cyan-300" : "bg-cyan-300/25"
+                        } ${isPlaying ? "animate-pulse" : ""}`}
+                        style={{
+                          height: `${height}%`,
+                          animationDelay: `${index * 45}ms`,
+                        }}
+                      />
+                    );
+                  })}
+                </span>
+              </button>
+
+              <div className="mt-6">
+                <input
+                  type="range"
+                  min="0"
+                  max={duration || 0}
+                  step="0.1"
+                  value={currentTime}
+                  onChange={handleSeek}
+                  className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/10 accent-cyan-300"
+                  aria-label="Position im Audiobeispiel"
+                />
+
+                <div className="mt-3 flex items-center justify-between text-xs text-white/35">
+                  <span>{formatTime(currentTime)}</span>
+                  <span>Direkter Generationenvergleich</span>
+                  <span>{formatTime(duration)}</span>
+                </div>
+              </div>
+
+              <audio
+                ref={audioRef}
+                preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={handleEnded}
+                onTimeUpdate={handleTimeUpdate}
+                onLoadedMetadata={handleLoadedMetadata}
+              >
+                <source src={cogniaDemoAudio} type="audio/mpeg" />
+                Ihr Browser unterstützt die Audiowiedergabe nicht.
+              </audio>
+            </div>
+          </div>
+
+          <div className="text-left lg:text-right">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Ergebnis
+            </p>
+            <h3 className="mt-4 text-2xl font-semibold text-white">KIM</h3>
+            <p className="mt-1 text-sm font-semibold text-cyan-300">
+              KI Generation 2
+            </p>
+            <p className="mt-5 ml-auto max-w-xs text-sm leading-relaxed text-white/50">
+              Präziseres Verständnis, schnellere Reaktionen und deutlich natürlichere,
+              flüssigere Gespräche.
+            </p>
+            <div className="mt-6 inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/[0.07] px-4 py-2 text-xs text-cyan-200">
+              Weiterentwickelte Voice Engine
+            </div>
+          </div>
+        </div>
+
+        <div className="my-12 h-px bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent" />
+
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
+            Hören Sie den Unterschied
+          </p>
+          <h2 className="mt-5 text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl">
+            KIM klingt nicht wie ein klassischer Voicebot.
+          </h2>
+          <p className="mt-4 text-3xl font-semibold leading-tight text-cyan-300 md:text-4xl lg:text-5xl">
+            KIM klingt wie die nächste Generation KI-Telefonie.
+          </p>
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/45">
+            Erleben Sie den direkten Vergleich zwischen Susi, unserer ersten
+            KI-Generation, und KIM, der weiterentwickelten Cognia Voice Engine.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-sm text-white/55">
+              Natürlichere Sprache
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-sm text-white/55">
+              Präziseres Verständnis
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-sm text-white/55">
+              Schnellere Reaktionen
+            </span>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
 }
+
+
 function ConvertPage() {
   return (
     <>

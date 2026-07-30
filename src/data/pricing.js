@@ -343,7 +343,7 @@ export const pricing = {
       price: "CHF 949",
       period: "/ Monat",
 
-      includedMinutes: 6326.666666666667,
+      includedMinutes: 6500,
       setupFee: 3499,
 
       overagePerMinute: 0.19,
@@ -361,7 +361,7 @@ export const pricing = {
         "Für den Einstieg in professionelle KI-Telefonie und automatisierte Kundenkommunikation.",
 
       features: [
-        "Bis zu ca. 6'327 Inklusivminuten",
+        "Bis zu ca. 6'500 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "3 parallele Telefonleitungen",
         "2 KI-Agenten / Assistenten",
@@ -390,7 +390,7 @@ export const pricing = {
       price: "CHF 3'495",
       period: "/ Monat",
 
-      includedMinutes: 24964.28571428571,
+      includedMinutes: 25000,
       setupFee: 7499,
 
       overagePerMinute: 0.18,
@@ -408,7 +408,7 @@ export const pricing = {
         "Für Unternehmen mit höherem Gesprächsvolumen, mehreren KI-Agenten und parallelen Workflows.",
 
       features: [
-        "Bis zu ca. 24'964 Inklusivminuten",
+        "Bis zu ca. 25'000 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "8 parallele Telefonleitungen",
         "5 KI-Agenten / Assistenten",
@@ -438,7 +438,7 @@ export const pricing = {
       price: "CHF 7'499",
       period: "/ Monat",
 
-      includedMinutes: 57684.61538461538,
+      includedMinutes: 58000,
       setupFee: 9999,
 
       overagePerMinute: 0.17,
@@ -456,7 +456,7 @@ export const pricing = {
         "Für grössere Service- und Vertriebsorganisationen mit umfangreicher KI-Telefonie.",
 
       features: [
-        "Bis zu ca. 57'685 Inklusivminuten",
+        "Bis zu ca. 58'000 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "20 parallele Telefonleitungen",
         "10 KI-Agenten / Assistenten",
