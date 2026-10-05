@@ -22,6 +22,7 @@ import DatenschutzPage from "./pages/DatenschutzPage";
 import SolutionsPage from "./pages/SolutionsPage";
 import convertVideo from "./assets/voixero-convert-video.mp4";
 import cogniaDemoAudio from "./assets/SusiVs.KIM.mpeg";
+import ConvertTrialPage from "./pages/ConvertTrialPage";
 
 const calendlyLink = "https://calendly.com/voixero_demo/30min";
 const heroCards = [
@@ -1126,7 +1127,7 @@ function ContactPage() {
             </Button>
 
             <Button
-              href="mailto:thomas.wittkopf@voixero.com"
+              href="mailto:info@voixero.ai"
               variant="outline"
               className="px-8 py-5"
             >
@@ -1156,6 +1157,7 @@ export default function App() {
   let Page = Home;
 
 if (route === "/convert") Page = ConvertPage;
+if (route === "/convert-trial") Page = ConvertTrialPage;
 if (route === "/concierge") Page = ConciergePage;
 if (route === "/cognia") Page = CogniaPage;
 if (route === "/preise") Page = PricingPage;
