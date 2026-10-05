@@ -361,7 +361,7 @@ export const pricing = {
         "Für den Einstieg in professionelle KI-Telefonie und automatisierte Kundenkommunikation.",
 
       features: [
-        "Bis zu ca. 6'500 Inklusivminuten",
+        "Bis zu 6'500 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "3 parallele Telefonleitungen",
         "2 KI-Agenten / Assistenten",
@@ -408,7 +408,7 @@ export const pricing = {
         "Für Unternehmen mit höherem Gesprächsvolumen, mehreren KI-Agenten und parallelen Workflows.",
 
       features: [
-        "Bis zu ca. 25'000 Inklusivminuten",
+        "Bis zu 25'000 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "8 parallele Telefonleitungen",
         "5 KI-Agenten / Assistenten",
@@ -456,7 +456,7 @@ export const pricing = {
         "Für grössere Service- und Vertriebsorganisationen mit umfangreicher KI-Telefonie.",
 
       features: [
-        "Bis zu ca. 58'000 Inklusivminuten",
+        "Bis zu 58'000 Inklusivminuten",
         "Telefonie Inbound & Outbound",
         "20 parallele Telefonleitungen",
         "10 KI-Agenten / Assistenten",
