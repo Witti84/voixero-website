@@ -32,10 +32,10 @@ export default function DatenschutzPage() {
               <p className="pt-2">
                 E-Mail:{" "}
                 <a
-                  href="mailto:thomas.wittkopf@voixero.com"
+                  href="mailto:support@voixero.com"
                   className="text-cyan-300 hover:underline"
                 >
-                  thomas.wittkopf@voixero.com
+                  support@voixero.com
                 </a>
               </p>
             </div>
@@ -177,10 +177,10 @@ export default function DatenschutzPage() {
             <p className="mt-4 leading-relaxed text-white/70">
               Zur Ausübung Ihrer Rechte können Sie uns unter{" "}
               <a
-                href="mailto:thomas.wittkopf@voixero.com"
+                href="mailto:support@voixero.com"
                 className="text-cyan-300 hover:underline"
               >
-                thomas.wittkopf@voixero.com
+                support@voixero.com
               </a>{" "}
               kontaktieren.
             </p>
