@@ -1127,7 +1127,7 @@ function ContactPage() {
             </Button>
 
             <Button
-              href="mailto:info@voixero.ai"
+              href="mailto:support@voixero.com"
               variant="outline"
               className="px-8 py-5"
             >
