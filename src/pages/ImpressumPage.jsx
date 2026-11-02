@@ -37,10 +37,10 @@ export default function ImpressumPage() {
               <p>
                 E-Mail:{" "}
                 <a
-                  href="mailto:info@voixero.ai"
+                  href="mailto:support@voixero.com"
                   className="text-cyan-300 hover:underline"
                 >
-                  info@voixero.ai
+                  support@voixero.com
                 </a>
               </p>
 
