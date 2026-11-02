@@ -284,7 +284,7 @@ export default function ConvertTrialPage() {
                 </div>
 
                 <a
-                  href="mailto:info@voixero.ai?subject=Convert%203-Monats-Trial"
+                  href="mailto:support@voixero.com?subject=Convert%203-Monats-Trial"
                   className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-cyan-300 px-6 py-4 font-semibold text-[#07111f] transition duration-300 hover:scale-[1.02] hover:bg-cyan-200"
                 >
                   Trial anfragen
@@ -349,7 +349,7 @@ export default function ConvertTrialPage() {
           </p>
 
           <a
-            href="mailto:info@voixero.ai?subject=Convert%203-Monats-Trial"
+            href="mailto:support@voixero.com?subject=Convert%203-Monats-Trial"
             className="mt-9 inline-flex rounded-full bg-cyan-300 px-9 py-4 font-semibold text-[#07111f] transition hover:scale-[1.02] hover:bg-cyan-200"
           >
             3-Monats-Trial starten
